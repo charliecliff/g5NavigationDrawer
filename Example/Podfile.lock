@@ -1,0 +1,14 @@
+PODS:
+  - g5NavigationDrawer (0.1.0)
+
+DEPENDENCIES:
+  - g5NavigationDrawer (from `../`)
+
+EXTERNAL SOURCES:
+  g5NavigationDrawer:
+    :path: ../
+
+SPEC CHECKSUMS:
+  g5NavigationDrawer: c00ae035228cc8fb261ba15a095df515156e5020
+
+COCOAPODS: 0.39.0

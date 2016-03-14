@@ -1,0 +1,6 @@
+framework module g5NavigationDrawer {
+  umbrella header "g5NavigationDrawer-umbrella.h"
+
+  export *
+  module * { export * }
+}

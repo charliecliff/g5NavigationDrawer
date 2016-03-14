@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9532"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="gsNavigationTabViewController">
+            <connections>
+                <outlet property="contentView" destination="rgg-tN-tOD" id="Y90-z5-7uZ"/>
+                <outlet property="leftContentLayoutConstraint" destination="wQU-3X-0pV" id="TaJ-7u-5LQ"/>
+                <outlet property="navigationShelfContainerView" destination="Baa-8O-yNg" id="Han-zQ-q2R"/>
+                <outlet property="navigationShelfWidthConstraint" destination="XqL-7a-ldA" id="BAt-Ji-fsf"/>
+                <outlet property="rightContentLayoutConstraint" destination="NEz-hF-mim" id="bNG-VU-R1x"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Baa-8O-yNg" userLabel="View - Navigation Shelf Container">
+                    <rect key="frame" x="-250" y="0.0" width="250" height="600"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="250" id="XqL-7a-ldA"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rgg-tN-tOD" userLabel="View - Container">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="Baa-8O-yNg" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" priority="750" id="74b-2b-9fY"/>
+                <constraint firstAttribute="bottom" secondItem="rgg-tN-tOD" secondAttribute="bottom" priority="750" id="Gw6-xO-LiJ"/>
+                <constraint firstAttribute="trailing" secondItem="rgg-tN-tOD" secondAttribute="trailing" priority="750" id="NEz-hF-mim" userLabel="Constraint - Right Constraint"/>
+                <constraint firstItem="rgg-tN-tOD" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Uzo-dC-4PH" userLabel="Constraint - Left Constraint"/>
+                <constraint firstItem="rgg-tN-tOD" firstAttribute="leading" secondItem="Baa-8O-yNg" secondAttribute="trailing" priority="750" id="Wyc-eb-KUM"/>
+                <constraint firstItem="rgg-tN-tOD" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" priority="750" id="jhD-zG-b4y"/>
+                <constraint firstAttribute="bottom" secondItem="Baa-8O-yNg" secondAttribute="bottom" priority="750" id="rlG-4a-k6g"/>
+                <constraint firstItem="Baa-8O-yNg" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" priority="750" constant="-250" identifier="Navigation  Shelf Leading Constraint" id="wQU-3X-0pV" userLabel="Navigation  Shelf Leading Constraint"/>
+            </constraints>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="Uzo-dC-4PH"/>
+                </mask>
+            </variation>
+            <point key="canvasLocation" x="263" y="261"/>
+        </view>
+    </objects>
+</document>

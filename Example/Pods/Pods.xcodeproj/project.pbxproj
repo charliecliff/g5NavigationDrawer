@@ -1,0 +1,845 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0B7E027FE9ECDEC1EB0712D2AABFA268 /* gsNavigationTabViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4EBB9F9F2A747E78B312BC7C1A4D4ED /* gsNavigationTabViewController.xib */; };
+		0D0DB3E98C8C12129BBBDEF3E7CEBE97 /* g5NavigationDrawer-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = B5F0F1B1EDA634CAB93C4968ADA85DE0 /* g5NavigationDrawer-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0E4EB3503B08E2F606A528A5F5ABC583 /* gsNavigationShelfFooterTableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 2616CB00D25710237695D22FDE0E2D99 /* gsNavigationShelfFooterTableViewCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1AA09DB9E621D646362F89754248F126 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E4E89230EF59BC255123B67864ACF77 /* Foundation.framework */; };
+		1C01EF8EFD3208B34E196A3869FCE675 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E4E89230EF59BC255123B67864ACF77 /* Foundation.framework */; };
+		5206AE69BE3B449D2134FD198FECBE27 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E4E89230EF59BC255123B67864ACF77 /* Foundation.framework */; };
+		5C4F3CB4F9DAA4BEF97B87C99521876F /* gsNavigationShelfTableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 4EA2FCE23697AFDC403573B39BABD6EA /* gsNavigationShelfTableViewCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6DBF66E31FBC1B53D935A15CD039E5FE /* g5NavigationDrawer-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 52DBA6CEAED774E2F538D7AD6095C574 /* g5NavigationDrawer-dummy.m */; };
+		7821693B57565D6C881B298A72D62964 /* gsNavigationShelfTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACD466483662AB5C964FC6FA208D84E3 /* gsNavigationShelfTableViewCell.xib */; };
+		8B94424A1C17173A0A9214750637DA4F /* Pods-g5NavigationDrawer_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = E284B55DE547A79086836D538A665987 /* Pods-g5NavigationDrawer_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8F7187D0677C9A64177FD65BFC2157EF /* gsNavigationShelfTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 847313EF76516C625DDB13FF1991B825 /* gsNavigationShelfTableViewCell.m */; };
+		8FF959A33C9B5ECBC2076C6723E4CDC0 /* Pods-g5NavigationDrawer_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = A3025E12EE8E195E2EB90C9642EBC0CA /* Pods-g5NavigationDrawer_Example-dummy.m */; };
+		90C4B0DD372CE98DF078C2DE32DA637B /* gsNavigationShelf.h in Headers */ = {isa = PBXBuildFile; fileRef = EBC41DB5593F6CBB9875A5BDF11EF85F /* gsNavigationShelf.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		93F95FCB2C3C3357881A0D4BE41799E7 /* g5NavigationDrawer.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2C118F9D2C379E8DA9E81C9FF0F7DE86 /* g5NavigationDrawer.bundle */; };
+		A5712D496990E5AAAC5B9DDE755F7DB8 /* gsNavigationShelf.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CD4E5ED49C9A17604F20475F4697089 /* gsNavigationShelf.m */; };
+		A65F9FE10C3BD3F1B1D5A0D0113D9C15 /* gsNavigationTabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 891044E4ACF73190C252F87D0E75A72C /* gsNavigationTabViewController.m */; };
+		AE9589DD84D625FAAEC23321F6608DF8 /* gsNavigationShelfFooterTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5239B65F652DB4BC45DE7F29A73ABA54 /* gsNavigationShelfFooterTableViewCell.m */; };
+		AEC29B5000A5FD0621DDFAB5BD2DDEAE /* gsNavigationTabViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 3DC7619F6B7E0A330EC677C6EC548C73 /* gsNavigationTabViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		BD10A0EA73366AD47C54E751EBC0996A /* gsNavigationShelf.xib in Resources */ = {isa = PBXBuildFile; fileRef = D9C7CDB77EB82AABE688548688E55D76 /* gsNavigationShelf.xib */; };
+		C42963ACB0A4216D439F9D4451BB693A /* gsNavigationShelfFooterTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F60FC2A2F0FF01198BF6B7F57D2CA956 /* gsNavigationShelfFooterTableViewCell.xib */; };
+		C7B3ED07F8E099B41D6C3742A69525E3 /* Pods-g5NavigationDrawer_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 8A7E3028578DFD47B6D12FB3EC593FEC /* Pods-g5NavigationDrawer_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C8F9129D5CB45A4518451F4CC7024960 /* Pods-g5NavigationDrawer_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BA9568CBA7BD2AACC1CC2389C994811 /* Pods-g5NavigationDrawer_Tests-dummy.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		0648D669758B2B38B946FD6B981DE7BB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9B4C25CC7AAF33CB50D22B14BD0926D2;
+			remoteInfo = g5NavigationDrawer;
+		};
+		52EC6AE72983D3ABE7BF52D9C078A0D8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4988AAA472E8A7AF91988256782F3FFE;
+			remoteInfo = "g5NavigationDrawer-g5NavigationDrawer";
+		};
+		572DDDC6CEF1D1B9A8F64D67DBFA8600 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9B4C25CC7AAF33CB50D22B14BD0926D2;
+			remoteInfo = g5NavigationDrawer;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		07E17D613A14A37E63DD4FB2AF059FB4 /* g5NavigationDrawer-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "g5NavigationDrawer-prefix.pch"; sourceTree = "<group>"; };
+		0CD4E5ED49C9A17604F20475F4697089 /* gsNavigationShelf.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = gsNavigationShelf.m; sourceTree = "<group>"; };
+		132EE330351512C4A065DCB5FA6B809D /* Pods_g5NavigationDrawer_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_g5NavigationDrawer_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		14322384D499FF8157183DB4BC233C04 /* Pods-g5NavigationDrawer_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-g5NavigationDrawer_Example-frameworks.sh"; sourceTree = "<group>"; };
+		1F1E31A707C7CCD5CE94D0EC0BBD9BD7 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2616CB00D25710237695D22FDE0E2D99 /* gsNavigationShelfFooterTableViewCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = gsNavigationShelfFooterTableViewCell.h; sourceTree = "<group>"; };
+		2673472B77FD12D1DD47AE3BBE9B3271 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2C118F9D2C379E8DA9E81C9FF0F7DE86 /* g5NavigationDrawer.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = g5NavigationDrawer.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		3DC7619F6B7E0A330EC677C6EC548C73 /* gsNavigationTabViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = gsNavigationTabViewController.h; sourceTree = "<group>"; };
+		3E4E89230EF59BC255123B67864ACF77 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		3F870B82B1535325352162E6FB81AE04 /* Pods-g5NavigationDrawer_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-g5NavigationDrawer_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
+		4EA2FCE23697AFDC403573B39BABD6EA /* gsNavigationShelfTableViewCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = gsNavigationShelfTableViewCell.h; sourceTree = "<group>"; };
+		5239B65F652DB4BC45DE7F29A73ABA54 /* gsNavigationShelfFooterTableViewCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = gsNavigationShelfFooterTableViewCell.m; sourceTree = "<group>"; };
+		52DBA6CEAED774E2F538D7AD6095C574 /* g5NavigationDrawer-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "g5NavigationDrawer-dummy.m"; sourceTree = "<group>"; };
+		5B766C63E1E35378757A8A40D85FC507 /* Pods-g5NavigationDrawer_Tests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-g5NavigationDrawer_Tests-resources.sh"; sourceTree = "<group>"; };
+		5F566425B98D1022A2B69308263B2BAA /* g5NavigationDrawer.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = g5NavigationDrawer.xcconfig; sourceTree = "<group>"; };
+		6380F3B2E74517CEE3E38416A4DE7A71 /* Pods-g5NavigationDrawer_Tests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-g5NavigationDrawer_Tests-frameworks.sh"; sourceTree = "<group>"; };
+		64608FC97C6A6F0FC8B9B3D2C243DCA1 /* Pods-g5NavigationDrawer_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-g5NavigationDrawer_Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		64D678C74145090B1BBEAF3DAD2C9093 /* Pods-g5NavigationDrawer_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-g5NavigationDrawer_Tests.modulemap"; sourceTree = "<group>"; };
+		786EEDDB3DAC7543D46C6521453C5145 /* Pods-g5NavigationDrawer_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-g5NavigationDrawer_Example-acknowledgements.plist"; sourceTree = "<group>"; };
+		7BA9568CBA7BD2AACC1CC2389C994811 /* Pods-g5NavigationDrawer_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-g5NavigationDrawer_Tests-dummy.m"; sourceTree = "<group>"; };
+		83E35E9C235D5B226DDEA1A467ABB6FA /* Pods-g5NavigationDrawer_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-g5NavigationDrawer_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
+		847313EF76516C625DDB13FF1991B825 /* gsNavigationShelfTableViewCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = gsNavigationShelfTableViewCell.m; sourceTree = "<group>"; };
+		891044E4ACF73190C252F87D0E75A72C /* gsNavigationTabViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = gsNavigationTabViewController.m; sourceTree = "<group>"; };
+		8A7E3028578DFD47B6D12FB3EC593FEC /* Pods-g5NavigationDrawer_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-g5NavigationDrawer_Tests-umbrella.h"; sourceTree = "<group>"; };
+		8B50E2E6DC534957B4612F20BC3BC13E /* Pods-g5NavigationDrawer_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-g5NavigationDrawer_Example.debug.xcconfig"; sourceTree = "<group>"; };
+		914DE2B5AAF13596C973467857C5246E /* Pods-g5NavigationDrawer_Example-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-g5NavigationDrawer_Example-resources.sh"; sourceTree = "<group>"; };
+		9191BF187437B0935792B35F96470958 /* Pods_g5NavigationDrawer_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_g5NavigationDrawer_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		990B337D8F7A65CCFC0D72C4A63363E0 /* Pods-g5NavigationDrawer_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-g5NavigationDrawer_Example.release.xcconfig"; sourceTree = "<group>"; };
+		A3025E12EE8E195E2EB90C9642EBC0CA /* Pods-g5NavigationDrawer_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-g5NavigationDrawer_Example-dummy.m"; sourceTree = "<group>"; };
+		AA8DF654A838BC26943A00A32C0B773D /* g5NavigationDrawer.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = g5NavigationDrawer.modulemap; sourceTree = "<group>"; };
+		AC7FC0F1974178C8C23BB4D09C3218FA /* Pods-g5NavigationDrawer_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-g5NavigationDrawer_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		ACD466483662AB5C964FC6FA208D84E3 /* gsNavigationShelfTableViewCell.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; path = gsNavigationShelfTableViewCell.xib; sourceTree = "<group>"; };
+		B305FB779363E99C23AB110964A51A2A /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B5F0F1B1EDA634CAB93C4968ADA85DE0 /* g5NavigationDrawer-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "g5NavigationDrawer-umbrella.h"; sourceTree = "<group>"; };
+		BA6428E9F66FD5A23C0A2E06ED26CD2F /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		C4EBB9F9F2A747E78B312BC7C1A4D4ED /* gsNavigationTabViewController.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; path = gsNavigationTabViewController.xib; sourceTree = "<group>"; };
+		CBAF1C88B9CB0C7482BA60F29C97198E /* g5NavigationDrawer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = g5NavigationDrawer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CC94383C0659EE0CB4F82455351522C2 /* Pods-g5NavigationDrawer_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-g5NavigationDrawer_Example.modulemap"; sourceTree = "<group>"; };
+		D9C7CDB77EB82AABE688548688E55D76 /* gsNavigationShelf.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; path = gsNavigationShelf.xib; sourceTree = "<group>"; };
+		E284B55DE547A79086836D538A665987 /* Pods-g5NavigationDrawer_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-g5NavigationDrawer_Example-umbrella.h"; sourceTree = "<group>"; };
+		EBC41DB5593F6CBB9875A5BDF11EF85F /* gsNavigationShelf.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = gsNavigationShelf.h; sourceTree = "<group>"; };
+		F60FC2A2F0FF01198BF6B7F57D2CA956 /* gsNavigationShelfFooterTableViewCell.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; path = gsNavigationShelfFooterTableViewCell.xib; sourceTree = "<group>"; };
+		F955F60453C5F59212A5FE760C9FD213 /* Pods-g5NavigationDrawer_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-g5NavigationDrawer_Tests.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1F56B9B285ACF192132FCD237D128E67 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1C01EF8EFD3208B34E196A3869FCE675 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2FE0C7D691F8196A6AC2CB1B34D0B732 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1AA09DB9E621D646362F89754248F126 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D4F33422D12F0D80F0ABCDA23C448A42 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5206AE69BE3B449D2134FD198FECBE27 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E06FEFD5F726345A3B7C2868E6A08022 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		123503C001E970CF923C7D17C14554CF /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				EBC41DB5593F6CBB9875A5BDF11EF85F /* gsNavigationShelf.h */,
+				0CD4E5ED49C9A17604F20475F4697089 /* gsNavigationShelf.m */,
+				2616CB00D25710237695D22FDE0E2D99 /* gsNavigationShelfFooterTableViewCell.h */,
+				5239B65F652DB4BC45DE7F29A73ABA54 /* gsNavigationShelfFooterTableViewCell.m */,
+				4EA2FCE23697AFDC403573B39BABD6EA /* gsNavigationShelfTableViewCell.h */,
+				847313EF76516C625DDB13FF1991B825 /* gsNavigationShelfTableViewCell.m */,
+				3DC7619F6B7E0A330EC677C6EC548C73 /* gsNavigationTabViewController.h */,
+				891044E4ACF73190C252F87D0E75A72C /* gsNavigationTabViewController.m */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		20EC676F102B89333E42D393EF381C8A /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				AF6913148FCE15E6F3CC1762DCC44031 /* Pods-g5NavigationDrawer_Example */,
+				60F0A1FAB90AFFFA7BA836A5803F6AA7 /* Pods-g5NavigationDrawer_Tests */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		60F0A1FAB90AFFFA7BA836A5803F6AA7 /* Pods-g5NavigationDrawer_Tests */ = {
+			isa = PBXGroup;
+			children = (
+				B305FB779363E99C23AB110964A51A2A /* Info.plist */,
+				64D678C74145090B1BBEAF3DAD2C9093 /* Pods-g5NavigationDrawer_Tests.modulemap */,
+				AC7FC0F1974178C8C23BB4D09C3218FA /* Pods-g5NavigationDrawer_Tests-acknowledgements.markdown */,
+				83E35E9C235D5B226DDEA1A467ABB6FA /* Pods-g5NavigationDrawer_Tests-acknowledgements.plist */,
+				7BA9568CBA7BD2AACC1CC2389C994811 /* Pods-g5NavigationDrawer_Tests-dummy.m */,
+				6380F3B2E74517CEE3E38416A4DE7A71 /* Pods-g5NavigationDrawer_Tests-frameworks.sh */,
+				5B766C63E1E35378757A8A40D85FC507 /* Pods-g5NavigationDrawer_Tests-resources.sh */,
+				8A7E3028578DFD47B6D12FB3EC593FEC /* Pods-g5NavigationDrawer_Tests-umbrella.h */,
+				64608FC97C6A6F0FC8B9B3D2C243DCA1 /* Pods-g5NavigationDrawer_Tests.debug.xcconfig */,
+				F955F60453C5F59212A5FE760C9FD213 /* Pods-g5NavigationDrawer_Tests.release.xcconfig */,
+			);
+			name = "Pods-g5NavigationDrawer_Tests";
+			path = "Target Support Files/Pods-g5NavigationDrawer_Tests";
+			sourceTree = "<group>";
+		};
+		6CD5A527E6AF86A6A76ECF081289EF99 /* g5NavigationDrawer */ = {
+			isa = PBXGroup;
+			children = (
+				70C91BC40EA673214A08F7D8599C0539 /* Pod */,
+				EFA6422BA40DCE7195BC92A0AC5DB239 /* Resources */,
+				89751D6483D71955941C502FEB9D6D3B /* Support Files */,
+			);
+			name = g5NavigationDrawer;
+			path = ../..;
+			sourceTree = "<group>";
+		};
+		70C91BC40EA673214A08F7D8599C0539 /* Pod */ = {
+			isa = PBXGroup;
+			children = (
+				123503C001E970CF923C7D17C14554CF /* Classes */,
+			);
+			path = Pod;
+			sourceTree = "<group>";
+		};
+		7DB346D0F39D3F0E887471402A8071AB = {
+			isa = PBXGroup;
+			children = (
+				BA6428E9F66FD5A23C0A2E06ED26CD2F /* Podfile */,
+				918D19909EC6EBD63234322DBD41349F /* Development Pods */,
+				BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */,
+				C0686A440639D3E58C5920004E6C354D /* Products */,
+				20EC676F102B89333E42D393EF381C8A /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		89751D6483D71955941C502FEB9D6D3B /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				AA8DF654A838BC26943A00A32C0B773D /* g5NavigationDrawer.modulemap */,
+				5F566425B98D1022A2B69308263B2BAA /* g5NavigationDrawer.xcconfig */,
+				52DBA6CEAED774E2F538D7AD6095C574 /* g5NavigationDrawer-dummy.m */,
+				07E17D613A14A37E63DD4FB2AF059FB4 /* g5NavigationDrawer-prefix.pch */,
+				B5F0F1B1EDA634CAB93C4968ADA85DE0 /* g5NavigationDrawer-umbrella.h */,
+				2673472B77FD12D1DD47AE3BBE9B3271 /* Info.plist */,
+			);
+			name = "Support Files";
+			path = "Example/Pods/Target Support Files/g5NavigationDrawer";
+			sourceTree = "<group>";
+		};
+		918D19909EC6EBD63234322DBD41349F /* Development Pods */ = {
+			isa = PBXGroup;
+			children = (
+				6CD5A527E6AF86A6A76ECF081289EF99 /* g5NavigationDrawer */,
+			);
+			name = "Development Pods";
+			sourceTree = "<group>";
+		};
+		AF6913148FCE15E6F3CC1762DCC44031 /* Pods-g5NavigationDrawer_Example */ = {
+			isa = PBXGroup;
+			children = (
+				1F1E31A707C7CCD5CE94D0EC0BBD9BD7 /* Info.plist */,
+				CC94383C0659EE0CB4F82455351522C2 /* Pods-g5NavigationDrawer_Example.modulemap */,
+				3F870B82B1535325352162E6FB81AE04 /* Pods-g5NavigationDrawer_Example-acknowledgements.markdown */,
+				786EEDDB3DAC7543D46C6521453C5145 /* Pods-g5NavigationDrawer_Example-acknowledgements.plist */,
+				A3025E12EE8E195E2EB90C9642EBC0CA /* Pods-g5NavigationDrawer_Example-dummy.m */,
+				14322384D499FF8157183DB4BC233C04 /* Pods-g5NavigationDrawer_Example-frameworks.sh */,
+				914DE2B5AAF13596C973467857C5246E /* Pods-g5NavigationDrawer_Example-resources.sh */,
+				E284B55DE547A79086836D538A665987 /* Pods-g5NavigationDrawer_Example-umbrella.h */,
+				8B50E2E6DC534957B4612F20BC3BC13E /* Pods-g5NavigationDrawer_Example.debug.xcconfig */,
+				990B337D8F7A65CCFC0D72C4A63363E0 /* Pods-g5NavigationDrawer_Example.release.xcconfig */,
+			);
+			name = "Pods-g5NavigationDrawer_Example";
+			path = "Target Support Files/Pods-g5NavigationDrawer_Example";
+			sourceTree = "<group>";
+		};
+		BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BF6342C8B29F4CEEA088EFF7AB4DE362 /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BF6342C8B29F4CEEA088EFF7AB4DE362 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				3E4E89230EF59BC255123B67864ACF77 /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		C0686A440639D3E58C5920004E6C354D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2C118F9D2C379E8DA9E81C9FF0F7DE86 /* g5NavigationDrawer.bundle */,
+				CBAF1C88B9CB0C7482BA60F29C97198E /* g5NavigationDrawer.framework */,
+				9191BF187437B0935792B35F96470958 /* Pods_g5NavigationDrawer_Example.framework */,
+				132EE330351512C4A065DCB5FA6B809D /* Pods_g5NavigationDrawer_Tests.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D3B4CCDF94AADA3CACBB1A5B79EEE67F /* Pod */ = {
+			isa = PBXGroup;
+			children = (
+				E19B9C9AEB305AF7B87176F5F1DEA5D7 /* Assets */,
+			);
+			path = Pod;
+			sourceTree = "<group>";
+		};
+		E19B9C9AEB305AF7B87176F5F1DEA5D7 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				D9C7CDB77EB82AABE688548688E55D76 /* gsNavigationShelf.xib */,
+				F60FC2A2F0FF01198BF6B7F57D2CA956 /* gsNavigationShelfFooterTableViewCell.xib */,
+				ACD466483662AB5C964FC6FA208D84E3 /* gsNavigationShelfTableViewCell.xib */,
+				C4EBB9F9F2A747E78B312BC7C1A4D4ED /* gsNavigationTabViewController.xib */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		EFA6422BA40DCE7195BC92A0AC5DB239 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				D3B4CCDF94AADA3CACBB1A5B79EEE67F /* Pod */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		2EC3ACBA2CEAB2836326C64D0E58E9F9 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0D0DB3E98C8C12129BBBDEF3E7CEBE97 /* g5NavigationDrawer-umbrella.h in Headers */,
+				90C4B0DD372CE98DF078C2DE32DA637B /* gsNavigationShelf.h in Headers */,
+				0E4EB3503B08E2F606A528A5F5ABC583 /* gsNavigationShelfFooterTableViewCell.h in Headers */,
+				5C4F3CB4F9DAA4BEF97B87C99521876F /* gsNavigationShelfTableViewCell.h in Headers */,
+				AEC29B5000A5FD0621DDFAB5BD2DDEAE /* gsNavigationTabViewController.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A28022716ADC9F3C3F73A2AA5AAC2946 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8B94424A1C17173A0A9214750637DA4F /* Pods-g5NavigationDrawer_Example-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D834D357E16AA61391AC7FC00E1E63AE /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C7B3ED07F8E099B41D6C3742A69525E3 /* Pods-g5NavigationDrawer_Tests-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		45E1255DC9CC3010F7C1C0AE6CB20223 /* Pods-g5NavigationDrawer_Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4A4881164195D1239AC37A010A632472 /* Build configuration list for PBXNativeTarget "Pods-g5NavigationDrawer_Tests" */;
+			buildPhases = (
+				64C00D1A463EBBC8AC807DBCEE1F540C /* Sources */,
+				2FE0C7D691F8196A6AC2CB1B34D0B732 /* Frameworks */,
+				D834D357E16AA61391AC7FC00E1E63AE /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D55B18D0BB29ED58432BE3EDA1FC7B24 /* PBXTargetDependency */,
+			);
+			name = "Pods-g5NavigationDrawer_Tests";
+			productName = "Pods-g5NavigationDrawer_Tests";
+			productReference = 132EE330351512C4A065DCB5FA6B809D /* Pods_g5NavigationDrawer_Tests.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		4988AAA472E8A7AF91988256782F3FFE /* g5NavigationDrawer-g5NavigationDrawer */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6A804F4846EAB83234505DA0C47129F6 /* Build configuration list for PBXNativeTarget "g5NavigationDrawer-g5NavigationDrawer" */;
+			buildPhases = (
+				67DDEB30A2A7995FB23595379968D36F /* Sources */,
+				E06FEFD5F726345A3B7C2868E6A08022 /* Frameworks */,
+				56AE309EC016342183814B83845B73CC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "g5NavigationDrawer-g5NavigationDrawer";
+			productName = "g5NavigationDrawer-g5NavigationDrawer";
+			productReference = 2C118F9D2C379E8DA9E81C9FF0F7DE86 /* g5NavigationDrawer.bundle */;
+			productType = "com.apple.product-type.bundle";
+		};
+		9B4C25CC7AAF33CB50D22B14BD0926D2 /* g5NavigationDrawer */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5D872F8C04BB4D07529A3A059D4EE62E /* Build configuration list for PBXNativeTarget "g5NavigationDrawer" */;
+			buildPhases = (
+				B6B4E6CDC2E1F5D1952BBEF058BF6925 /* Sources */,
+				1F56B9B285ACF192132FCD237D128E67 /* Frameworks */,
+				A73F930889067B540F4C32F6595C7E33 /* Resources */,
+				2EC3ACBA2CEAB2836326C64D0E58E9F9 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4387185F93D6AE4064528E59C0500B66 /* PBXTargetDependency */,
+			);
+			name = g5NavigationDrawer;
+			productName = g5NavigationDrawer;
+			productReference = CBAF1C88B9CB0C7482BA60F29C97198E /* g5NavigationDrawer.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		CAD0D656B200284FBDE77DF0CD7896A5 /* Pods-g5NavigationDrawer_Example */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 25B95712860B3C70432C2A5AB53A1E04 /* Build configuration list for PBXNativeTarget "Pods-g5NavigationDrawer_Example" */;
+			buildPhases = (
+				F7514249049DB74E01BF6670135485CA /* Sources */,
+				D4F33422D12F0D80F0ABCDA23C448A42 /* Frameworks */,
+				A28022716ADC9F3C3F73A2AA5AAC2946 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3BF5364B3FDEB2A29A3E31067FEA8C8F /* PBXTargetDependency */,
+			);
+			name = "Pods-g5NavigationDrawer_Example";
+			productName = "Pods-g5NavigationDrawer_Example";
+			productReference = 9191BF187437B0935792B35F96470958 /* Pods_g5NavigationDrawer_Example.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D41D8CD98F00B204E9800998ECF8427E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0700;
+				LastUpgradeCheck = 0700;
+			};
+			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
+			productRefGroup = C0686A440639D3E58C5920004E6C354D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				9B4C25CC7AAF33CB50D22B14BD0926D2 /* g5NavigationDrawer */,
+				4988AAA472E8A7AF91988256782F3FFE /* g5NavigationDrawer-g5NavigationDrawer */,
+				CAD0D656B200284FBDE77DF0CD7896A5 /* Pods-g5NavigationDrawer_Example */,
+				45E1255DC9CC3010F7C1C0AE6CB20223 /* Pods-g5NavigationDrawer_Tests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		56AE309EC016342183814B83845B73CC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BD10A0EA73366AD47C54E751EBC0996A /* gsNavigationShelf.xib in Resources */,
+				C42963ACB0A4216D439F9D4451BB693A /* gsNavigationShelfFooterTableViewCell.xib in Resources */,
+				7821693B57565D6C881B298A72D62964 /* gsNavigationShelfTableViewCell.xib in Resources */,
+				0B7E027FE9ECDEC1EB0712D2AABFA268 /* gsNavigationTabViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A73F930889067B540F4C32F6595C7E33 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				93F95FCB2C3C3357881A0D4BE41799E7 /* g5NavigationDrawer.bundle in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		64C00D1A463EBBC8AC807DBCEE1F540C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C8F9129D5CB45A4518451F4CC7024960 /* Pods-g5NavigationDrawer_Tests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		67DDEB30A2A7995FB23595379968D36F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B6B4E6CDC2E1F5D1952BBEF058BF6925 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6DBF66E31FBC1B53D935A15CD039E5FE /* g5NavigationDrawer-dummy.m in Sources */,
+				A5712D496990E5AAAC5B9DDE755F7DB8 /* gsNavigationShelf.m in Sources */,
+				AE9589DD84D625FAAEC23321F6608DF8 /* gsNavigationShelfFooterTableViewCell.m in Sources */,
+				8F7187D0677C9A64177FD65BFC2157EF /* gsNavigationShelfTableViewCell.m in Sources */,
+				A65F9FE10C3BD3F1B1D5A0D0113D9C15 /* gsNavigationTabViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F7514249049DB74E01BF6670135485CA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8FF959A33C9B5ECBC2076C6723E4CDC0 /* Pods-g5NavigationDrawer_Example-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		3BF5364B3FDEB2A29A3E31067FEA8C8F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = g5NavigationDrawer;
+			target = 9B4C25CC7AAF33CB50D22B14BD0926D2 /* g5NavigationDrawer */;
+			targetProxy = 0648D669758B2B38B946FD6B981DE7BB /* PBXContainerItemProxy */;
+		};
+		4387185F93D6AE4064528E59C0500B66 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "g5NavigationDrawer-g5NavigationDrawer";
+			target = 4988AAA472E8A7AF91988256782F3FFE /* g5NavigationDrawer-g5NavigationDrawer */;
+			targetProxy = 52EC6AE72983D3ABE7BF52D9C078A0D8 /* PBXContainerItemProxy */;
+		};
+		D55B18D0BB29ED58432BE3EDA1FC7B24 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = g5NavigationDrawer;
+			target = 9B4C25CC7AAF33CB50D22B14BD0926D2 /* g5NavigationDrawer */;
+			targetProxy = 572DDDC6CEF1D1B9A8F64D67DBFA8600 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		03CA91998D6773EC5D02B3DB87B8353E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PREPROCESSOR_DEFINITIONS = "RELEASE=1";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		08F8755E46CE4B93F9C05551C5156877 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5F566425B98D1022A2B69308263B2BAA /* g5NavigationDrawer.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/g5NavigationDrawer/g5NavigationDrawer-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/g5NavigationDrawer/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/g5NavigationDrawer/g5NavigationDrawer.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = g5NavigationDrawer;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		0B57334D6C23DADAA4F7D802A5760EB2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		1E4AD0A0B916438D07988417AF941B0A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5F566425B98D1022A2B69308263B2BAA /* g5NavigationDrawer.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/g5NavigationDrawer/g5NavigationDrawer-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/g5NavigationDrawer/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/g5NavigationDrawer/g5NavigationDrawer.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = g5NavigationDrawer;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		1EB9B7B1CBCB28C4CDBFE4F4C2F9D918 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F955F60453C5F59212A5FE760C9FD213 /* Pods-g5NavigationDrawer_Tests.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-g5NavigationDrawer_Tests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-g5NavigationDrawer_Tests/Pods-g5NavigationDrawer_Tests.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = Pods_g5NavigationDrawer_Tests;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		2CCAD6C2B9904A10652C5FD49F188AFA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5F566425B98D1022A2B69308263B2BAA /* g5NavigationDrawer.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				PRODUCT_NAME = g5NavigationDrawer;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Debug;
+		};
+		4D2EC478D1766D172DF87A252EB9AD53 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8B50E2E6DC534957B4612F20BC3BC13E /* Pods-g5NavigationDrawer_Example.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-g5NavigationDrawer_Example/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-g5NavigationDrawer_Example/Pods-g5NavigationDrawer_Example.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = Pods_g5NavigationDrawer_Example;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		A915765DE6B40CCF4826FD4A949ADCBA /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 990B337D8F7A65CCFC0D72C4A63363E0 /* Pods-g5NavigationDrawer_Example.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-g5NavigationDrawer_Example/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-g5NavigationDrawer_Example/Pods-g5NavigationDrawer_Example.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = Pods_g5NavigationDrawer_Example;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		B20DF2D8951BF03260BD1255EFFD8E11 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5F566425B98D1022A2B69308263B2BAA /* g5NavigationDrawer.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				PRODUCT_NAME = g5NavigationDrawer;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Release;
+		};
+		D612CB8B8C3AC2462E11CC91B6C0342E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 64608FC97C6A6F0FC8B9B3D2C243DCA1 /* Pods-g5NavigationDrawer_Tests.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-g5NavigationDrawer_Tests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-g5NavigationDrawer_Tests/Pods-g5NavigationDrawer_Tests.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = Pods_g5NavigationDrawer_Tests;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		25B95712860B3C70432C2A5AB53A1E04 /* Build configuration list for PBXNativeTarget "Pods-g5NavigationDrawer_Example" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4D2EC478D1766D172DF87A252EB9AD53 /* Debug */,
+				A915765DE6B40CCF4826FD4A949ADCBA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0B57334D6C23DADAA4F7D802A5760EB2 /* Debug */,
+				03CA91998D6773EC5D02B3DB87B8353E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4A4881164195D1239AC37A010A632472 /* Build configuration list for PBXNativeTarget "Pods-g5NavigationDrawer_Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D612CB8B8C3AC2462E11CC91B6C0342E /* Debug */,
+				1EB9B7B1CBCB28C4CDBFE4F4C2F9D918 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5D872F8C04BB4D07529A3A059D4EE62E /* Build configuration list for PBXNativeTarget "g5NavigationDrawer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1E4AD0A0B916438D07988417AF941B0A /* Debug */,
+				08F8755E46CE4B93F9C05551C5156877 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6A804F4846EAB83234505DA0C47129F6 /* Build configuration list for PBXNativeTarget "g5NavigationDrawer-g5NavigationDrawer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2CCAD6C2B9904A10652C5FD49F188AFA /* Debug */,
+				B20DF2D8951BF03260BD1255EFFD8E11 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+}

@@ -1,0 +1,12 @@
+source 'https://github.com/CocoaPods/Specs.git'
+use_frameworks!
+
+target 'g5NavigationDrawer_Example', :exclusive => true do
+  pod 'g5NavigationDrawer', :path => '../'
+end
+
+target 'g5NavigationDrawer_Tests', :exclusive => true do
+  pod 'g5NavigationDrawer', :path => '../'
+
+  
+end
