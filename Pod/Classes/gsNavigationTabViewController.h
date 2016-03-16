@@ -9,8 +9,9 @@
 
 @optional
 - (UIColor *)navigationShelfTextColor;
-- (UIColor *)navigationShelfBackgroundColor;
 - (UIColor *)navigationShelfBadgeColor;
+- (UIColor *)navigationShelfLeftGradientColor;
+- (UIColor *)navigationShelfRightGradientColor;
 
 @end
 
@@ -20,8 +21,8 @@
 
 @property (nonatomic, strong) gsNavigationShelf *navigationShelf;
 
+- (instancetype)init NS_UNAVAILABLE;
 - (gsNavigationTabViewController *)initWithDataSource:(id<gsNavigationTabDataSource>)dataSource;
-
 
 - (void)setMenuOptionWithTitle:(NSString *)title withSubtitle:(NSString *)subTitle withIconGlyph:(NSString *)glyph withBadgeNumber:(NSInteger)badgeNumber withViewController:(UIViewController *)vc;
 - (void)setFooterOptionWithTitle:(NSString *)title withSubtitle:(NSString *)subTitle withViewController:(UIViewController *)vc;

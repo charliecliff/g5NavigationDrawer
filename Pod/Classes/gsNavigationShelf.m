@@ -6,7 +6,6 @@
 //  Copyright © 2015 Charles Cliff. All rights reserved.
 //
 
-#import <gsUIKit/gsUIKit.h>
 #import "gsNavigationShelf.h"
 #import "gsNavigationShelfTableViewCell.h"
 #import "gsNavigationShelfFooterTableViewCell.h"
@@ -32,10 +31,6 @@
 }
 
 - (void)reloadStyles {
-    if ([self.dataSource respondsToSelector:@selector(backgroundColor)]) {
-        UIColor *backgroundColor = [self.dataSource backgroundColor];
-        [self.backgroundImageView setBackgroundColor:backgroundColor];
-    }
     [self.profileImageView setImage:[self.dataSource headerIcon]];
 }
 

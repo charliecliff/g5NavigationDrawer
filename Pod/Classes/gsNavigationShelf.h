@@ -29,7 +29,6 @@
 - (gsNavigationShelfMenuItem *)menuItemForFooterOptionAtIndexPath:(NSIndexPath *)indexPath;
 
 @optional
-- (UIColor *)backgroundColor;
 - (UIColor *)textColor;
 
 @end
@@ -39,8 +38,6 @@
 
 @property (nonatomic, strong) id<gsNavigationShelfDelegate>delegate;
 @property (nonatomic, strong) id<gsNavigationShelfDataSource>dataSource;
-
-- (gsNavigationShelf *)initWithDataSource:(id<gsNavigationShelfDataSource>)dataSource;
 
 - (void)reloadData;
 

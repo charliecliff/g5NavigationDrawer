@@ -7,7 +7,6 @@
 //
 
 #import "gsNavigationShelfTableViewCell.h"
-#import "gsUIKitUtilities.h"
 
 @interface gsNavigationShelfTableViewCell ()
 
@@ -21,9 +20,9 @@
 - (void)configureForNavigationMenuItem:(gsNavigationShelfMenuItem *)menuItem {
     [self.titleLabel setText:menuItem.title];
     
-    UIFont *glyphFont = [gsUIKitUtilities loadUIFontWithName:@"gs-fonts" withSize:20];
-    [self.iconGlyphLabel setFont:glyphFont];
-    [self.iconGlyphLabel setText:menuItem.glyphString];
+//    UIFont *glyphFont = [gsUIKitUtilities loadUIFontWithName:@"gs-fonts" withSize:20];
+//    [self.iconGlyphLabel setFont:glyphFont];
+//    [self.iconGlyphLabel setText:menuItem.glyphString];
     
     [self setBadgeCount:menuItem.badgeNumber withBadgeColor:self.badgeColor];
 }

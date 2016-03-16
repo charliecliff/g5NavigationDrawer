@@ -2,12 +2,10 @@
 #import "gsNavigationTabViewController.h"
 #import "gsNavigationShelf.h"
 #import "gsNavigationShelfMenuItem.h"
-#import "gsUIKitUtilities.h"
-#import "gsUIKit.h"
 
 #define SCREEN_HEIGHT [[UIScreen mainScreen] bounds].size.height
 
-@interface gsNavigationTabViewController () <gsNavigationShelfDelegate, gsNavigationShelfDataSource> {
+@interface gsNavigationTabViewController () <gsNavigationShelfDataSource> {
     BOOL joseBoolean;
     
     CGFloat navigationShelfWidth;
@@ -37,10 +35,6 @@
 
 #pragma mark - Init
 
-- (instancetype)init {
-    assert(false);
-}
-
 - (gsNavigationTabViewController *)initWithDataSource:(id<gsNavigationTabDataSource>)dataSource {
     self = [super initWithNibName:@"gsUIKitResources.bundle/gsNavigationTabViewController" bundle:nil];
     if (self != nil) {
@@ -58,7 +52,7 @@
         self.tabBarController = [[UITabBarController alloc] init];
         [self.tabBarController.tabBar setHidden:YES];
         
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(leftButton) name:DISPLAY_NAVIGATION_SHELF_NOTIFICATION object:nil];
+//        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(leftButton) name:DISPLAY_NAVIGATION_SHELF_NOTIFICATION object:nil];
     }
     return self;
 }
@@ -84,6 +78,7 @@
         joseBoolean = YES;
     }
     navigationShelfWidth = self.navigationShelfWidthConstraint.constant;
+    [self setUpColorGradient];
 }
 
 #pragma mark - Setup
@@ -131,9 +126,9 @@
     
     UIBarButtonItem *navBarItem = [[UIBarButtonItem alloc] initWithTitle:@"\ue607" style:UIBarButtonItemStylePlain target:self action:@selector(leftButton)];
     
-    UIFont *glyphFont = [gsUIKitUtilities loadUIFontWithName:@"gs-fonts" withSize:30];
-    NSDictionary *attributes = [NSDictionary dictionaryWithObjectsAndKeys:glyphFont, NSFontAttributeName, nil];
-    [navBarItem setTitleTextAttributes:attributes forState:UIControlStateNormal];
+//    UIFont *glyphFont = [gsUIKitUtilities loadUIFontWithName:@"gs-fonts" withSize:30];
+//    NSDictionary *attributes = [NSDictionary dictionaryWithObjectsAndKeys:glyphFont, NSFontAttributeName, nil];
+//    [navBarItem setTitleTextAttributes:attributes forState:UIControlStateNormal];
     
     [navVC.navigationBar.topItem setLeftBarButtonItem:navBarItem];
 }
@@ -144,7 +139,6 @@
     NSArray *views = [resourcesBundle loadNibNamed:@"gsNavigationShelf" owner:nil options:nil];
     self.navigationShelf = views[0];
     self.navigationShelf.dataSource = self;
-    self.navigationShelf.delegate   = self;
     [self.navigationShelf reloadData];
 }
 
@@ -183,6 +177,23 @@
                                                                                   attribute:NSLayoutAttributeTrailing
                                                                                  multiplier:1.0
                                                                                    constant:0.0]];
+}
+
+- (void)setUpColorGradient {
+    if ([self.dataSource respondsToSelector:@selector(navigationShelfLeftGradientColor)] && [self.dataSource respondsToSelector:@selector(navigationShelfRightGradientColor)]) {
+
+        CAGradientLayer *gradient = [CAGradientLayer layer];
+        gradient.frame = self.navigationShelf.bounds;
+        gradient.colors = [NSArray arrayWithObjects:(id)[self.dataSource.navigationShelfRightGradientColor CGColor], (id)[self.dataSource.navigationShelfLeftGradientColor CGColor], nil];
+        gradient.locations = [NSArray arrayWithObjects:
+                              [NSNumber numberWithFloat:0.0f],
+                              [NSNumber numberWithFloat:1.0],
+                              nil];
+        [gradient setStartPoint:CGPointMake(0.0, 0.5)];
+        [gradient setEndPoint:CGPointMake(1.0, 0.5)];
+        [self.navigationShelf.layer insertSublayer:gradient atIndex:0];
+    
+    }
 }
 
 #pragma mark - Reload
@@ -248,7 +259,7 @@
 #pragma mark - Updaters
 
 - (void)updateMenuOptionWithTitle:(NSString *)title withSubtitle:(NSString *)subTitle withIconGlyph:(NSString *)glyph withBadgeNumber:(NSInteger)badgeNumber {
-    gsNavigationShelfMenuItem *newMenuItem = [[gsNavigationShelfMenuItem alloc] initWithTitle:title withSubtitle:subTitle withGlyph:nil withBadgeNumber:badgeNumber];
+    gsNavigationShelfMenuItem *newMenuItem = [[gsNavigationShelfMenuItem alloc] initWithTitle:title withSubtitle:subTitle withGlyph:glyph withBadgeNumber:badgeNumber];
     [self.menuNavigationMenuItems setObject:newMenuItem forKey:newMenuItem.title];
     if (![self.menuNavigationMenuItemTitles containsObject:newMenuItem.title]) {
         [self.menuNavigationMenuItemTitles addObject:newMenuItem.title];
@@ -256,7 +267,7 @@
     [self reload];
 }
 
-- (void)updateFooterOptionWithTitle:(NSString *)title withSubtitle:(NSString *)subTitle{
+- (void)updateFooterOptionWithTitle:(NSString *)title withSubtitle:(NSString *)subTitle {
     gsNavigationShelfMenuItem *newMenuItem = [[gsNavigationShelfMenuItem alloc] initWithTitle:title withSubtitle:subTitle withGlyph:nil withBadgeNumber:0];
     [self.footerNavigationMenuItems setObject:newMenuItem forKey:newMenuItem.title];
     if (![self.footerNavigationMenuItemTitles containsObject:newMenuItem.title]) {
@@ -361,12 +372,16 @@
     return [self.dataSource navigationHeaderImage];
 }
 
-- (UIColor *)backgroundColor {
-    return [self.dataSource navigationShelfBackgroundColor];
-}
-
 - (UIColor *)badgeColor {
     return [self.dataSource navigationShelfBadgeColor];
+}
+
+- (UIColor *)navigationShelfLeftGradientColor {
+    return self.dataSource.navigationShelfLeftGradientColor;
+}
+
+- (UIColor *)navigationShelfRightGradientColor {
+    return self.dataSource.navigationShelfRightGradientColor;
 }
 
 - (UIColor *)textColor {

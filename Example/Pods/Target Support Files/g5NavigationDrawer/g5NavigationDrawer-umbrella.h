@@ -2,6 +2,7 @@
 
 #import "gsNavigationShelf.h"
 #import "gsNavigationShelfFooterTableViewCell.h"
+#import "gsNavigationShelfMenuItem.h"
 #import "gsNavigationShelfTableViewCell.h"
 #import "gsNavigationTabViewController.h"
 
