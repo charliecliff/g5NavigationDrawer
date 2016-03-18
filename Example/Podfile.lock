@@ -9,6 +9,6 @@ EXTERNAL SOURCES:
     :path: ../
 
 SPEC CHECKSUMS:
-  g5NavigationDrawer: c00ae035228cc8fb261ba15a095df515156e5020
+  g5NavigationDrawer: bc5e9ad3f64feb7c3dd9f2b1003640b5c95e8181
 
 COCOAPODS: 0.39.0

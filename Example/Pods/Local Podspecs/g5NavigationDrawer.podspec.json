@@ -3,13 +3,13 @@
   "version": "0.1.0",
   "summary": "g5NavigationDrawer.",
   "description": "A Helpul UI Framework for building out a simple Navigation Drawer",
-  "homepage": "https://github.com/<GITHUB_USERNAME>/g5NavigationDrawer",
+  "homepage": "https://github.com/charliecliff/g5NavigationDrawer",
   "license": "MIT",
   "authors": {
     "cliffhanger62": "charlie.cliff@gmail.com"
   },
   "source": {
-    "git": "https://github.com/<GITHUB_USERNAME>/g5NavigationDrawer.git",
+    "git": "https://github.com/charliecliff/g5NavigationDrawer.git",
     "tag": "0.1.0"
   },
   "platforms": {
@@ -19,7 +19,8 @@
   "source_files": "Pod/Classes/**/*",
   "resource_bundles": {
     "g5NavigationDrawer": [
-      "Pod/Assets/**/*.xib"
+      "Pod/Assets/**/*"
     ]
-  }
+  },
+  "public_header_files": "Pod/Classes/**/*.h"
 }

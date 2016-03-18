@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -19,7 +20,7 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="54"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="53"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="53.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hHm-aA-svr" userLabel="Image - Badge">
@@ -36,16 +37,13 @@
                         <color key="textColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5sf-EB-xt2" userLabel="Label - Glyph">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="c8X-QC-Rkq">
                         <rect key="frame" x="15" y="12" width="30" height="30"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="30" id="VV6-vt-LB0"/>
-                            <constraint firstAttribute="width" constant="30" id="cOw-sg-LRd"/>
+                            <constraint firstAttribute="width" constant="30" id="6YC-LD-S9m"/>
+                            <constraint firstAttribute="height" constant="30" id="dDh-VX-fZF"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                        <nil key="highlightedColor"/>
-                    </label>
+                    </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Def-EF-5AS" userLabel="Label - Title">
                         <rect key="frame" x="53" y="16" width="212" height="21"/>
                         <constraints>
@@ -59,16 +57,16 @@
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 <constraints>
                     <constraint firstItem="hHm-aA-svr" firstAttribute="leading" secondItem="Def-EF-5AS" secondAttribute="trailing" priority="750" constant="12" id="49j-br-Jf8" userLabel="Constraint - Badge Leading Edge"/>
-                    <constraint firstItem="5sf-EB-xt2" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="7" id="5oE-VY-jjJ"/>
                     <constraint firstItem="y2c-Y5-V1a" firstAttribute="centerX" secondItem="hHm-aA-svr" secondAttribute="centerX" priority="750" id="IOP-En-UQc" userLabel="Constraint - Badge Label Horizontal Center"/>
+                    <constraint firstItem="c8X-QC-Rkq" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="7" id="Oqw-1c-Vry"/>
                     <constraint firstItem="y2c-Y5-V1a" firstAttribute="height" secondItem="hHm-aA-svr" secondAttribute="height" priority="750" id="RKl-Zs-oVv" userLabel="Constraint - Badge Label Height"/>
-                    <constraint firstItem="5sf-EB-xt2" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="b83-iX-4vm"/>
+                    <constraint firstItem="c8X-QC-Rkq" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="cnn-me-O0J"/>
                     <constraint firstItem="y2c-Y5-V1a" firstAttribute="width" secondItem="hHm-aA-svr" secondAttribute="width" priority="750" id="h5o-Hi-DOq"/>
-                    <constraint firstItem="Def-EF-5AS" firstAttribute="leading" secondItem="5sf-EB-xt2" secondAttribute="trailing" constant="8" id="hUZ-8e-y1E"/>
                     <constraint firstItem="Def-EF-5AS" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" priority="750" id="igR-qT-Mao" userLabel="Constraint - Label Vertical Center"/>
                     <constraint firstAttribute="trailing" secondItem="hHm-aA-svr" secondAttribute="trailing" priority="750" constant="12" id="mYD-33-fKY" userLabel="Constraint - Badge Trailing Edge"/>
                     <constraint firstItem="hHm-aA-svr" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" priority="750" id="sgX-VP-Qnj" userLabel="Constraint - Badge Vertical Center"/>
                     <constraint firstItem="y2c-Y5-V1a" firstAttribute="centerY" secondItem="hHm-aA-svr" secondAttribute="centerY" priority="750" id="tlW-gh-2BJ"/>
+                    <constraint firstItem="Def-EF-5AS" firstAttribute="leading" secondItem="c8X-QC-Rkq" secondAttribute="trailing" constant="8" id="xVM-Ka-bWM"/>
                 </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -76,7 +74,6 @@
                 <outlet property="badgeImageView" destination="hHm-aA-svr" id="B2s-Xg-clw"/>
                 <outlet property="badgeLabel" destination="y2c-Y5-V1a" id="aOX-ju-YBB"/>
                 <outlet property="badgeLabelWidth" destination="9HD-ik-Uqv" id="E92-Kq-mLf"/>
-                <outlet property="iconGlyphLabel" destination="5sf-EB-xt2" id="h93-9N-1Ke"/>
                 <outlet property="titleLabel" destination="Def-EF-5AS" id="K95-C1-2CA"/>
             </connections>
         </tableViewCell>

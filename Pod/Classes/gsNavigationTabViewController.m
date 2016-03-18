@@ -18,7 +18,9 @@
 @property (nonatomic, strong, readwrite) NSMutableDictionary *footerNavigationMenuItems;
 @property (nonatomic, strong, readwrite) NSMutableDictionary *menuViewControllers;
 @property (nonatomic, strong, readwrite) NSMutableDictionary *footerViewControllers;
-@property (nonatomic, strong, readwrite) NSMutableDictionary *navigationViewControllers;
+@property (nonatomic, strong, readwrite) NSMutableDictionary *childViewControllers;
+
+//@property (nonatomic, strong, readwrite) NSMutableDictionary *navigationViewControllers;
 
 @property (nonatomic, strong) UITabBarController *tabBarController;
 
@@ -35,8 +37,30 @@
 
 #pragma mark - Init
 
-- (gsNavigationTabViewController *)initWithDataSource:(id<gsNavigationTabDataSource>)dataSource {
-    self = [super initWithNibName:@"gsUIKitResources.bundle/gsNavigationTabViewController" bundle:nil];
+- (gsNavigationTabViewController *)initWithDataSource:(id<gsNavigationTabDataSource>)dataSource
+{
+    
+//    NSArray *bundles = [[NSBundle mainBundle] pathsForResourcesOfType:@"bundle" inDirectory:nil];
+//    
+//    
+//
+//    NSString *bundlePath = [[NSBundle mainBundle] pathForResource:@"g5NavigationDrawer" ofType:@"bundle"];
+//    
+//    NSBundle *bundle = [NSBundle bundleWithPath:bundlePath];
+    
+//    self = [super initWithNibName:@"gsNavigationTabViewController" bundle:bundle];
+
+    NSString *bundlePath = [[NSBundle bundleForClass:[self class]] pathForResource:nil ofType:@"bundle"];
+    NSBundle *bundle = [NSBundle bundleWithPath:bundlePath];
+    
+    NSBundle *bundle2 = [NSBundle bundleForClass:[self class]];
+    
+    
+    NSArray *bundles = [bundle pathsForResourcesOfType:@"xib" inDirectory:nil];
+
+    
+    self = [super initWithNibName:@"gsNavigationTabViewController" bundle:bundle];
+    
     if (self != nil) {
         
         self.menuNavigationMenuItemTitles   = [[NSMutableOrderedSet alloc] init];
@@ -47,12 +71,10 @@
         
         self.menuViewControllers       = [[NSMutableDictionary alloc] init];
         self.footerViewControllers     = [[NSMutableDictionary alloc] init];
-        self.navigationViewControllers = [[NSMutableDictionary alloc] init];
+        self.childViewControllers      = [[NSMutableDictionary alloc] init];
         
         self.tabBarController = [[UITabBarController alloc] init];
         [self.tabBarController.tabBar setHidden:YES];
-        
-//        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(leftButton) name:DISPLAY_NAVIGATION_SHELF_NOTIFICATION object:nil];
     }
     return self;
 }
@@ -66,19 +88,19 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    [self setupGestureRecognizersForMenuViewControllers];
-    [self setupGestureRecognizersForFooterViewControllers];
-    [self setupNavigationShelf];
-    [self setupNavigationShelfConstraints];
+//    [self setupGestureRecognizersForMenuViewControllers];
+//    [self setupGestureRecognizersForFooterViewControllers];
+//    [self setupNavigationShelf];
+//    [self setupNavigationShelfConstraints];
 }
 
 - (void)viewDidLayoutSubviews {
-    if (!joseBoolean) {
-        [self setUpContentView];
-        joseBoolean = YES;
-    }
-    navigationShelfWidth = self.navigationShelfWidthConstraint.constant;
-    [self setUpColorGradient];
+//    if (!joseBoolean) {
+//        [self setUpContentView];
+//        joseBoolean = YES;
+//    }
+//    navigationShelfWidth = self.navigationShelfWidthConstraint.constant;
+//    [self setUpColorGradient];
 }
 
 #pragma mark - Setup
@@ -119,19 +141,19 @@
     }
 }
 
-- (void)configureNavigationBarForNavigationController:(UINavigationController *)navVC withTitle:(NSString *)navVCTitle {
-    [navVC.navigationBar setBarStyle:UIBarStyleBlackOpaque];
-    [navVC.navigationBar setBarTintColor:[UIColor purpleColor]];
-    [navVC setNavigationBarHidden:YES];
-    
-    UIBarButtonItem *navBarItem = [[UIBarButtonItem alloc] initWithTitle:@"\ue607" style:UIBarButtonItemStylePlain target:self action:@selector(leftButton)];
-    
-//    UIFont *glyphFont = [gsUIKitUtilities loadUIFontWithName:@"gs-fonts" withSize:30];
-//    NSDictionary *attributes = [NSDictionary dictionaryWithObjectsAndKeys:glyphFont, NSFontAttributeName, nil];
-//    [navBarItem setTitleTextAttributes:attributes forState:UIControlStateNormal];
-    
-    [navVC.navigationBar.topItem setLeftBarButtonItem:navBarItem];
-}
+//- (void)configureNavigationBarForNavigationController:(UINavigationController *)navVC withTitle:(NSString *)navVCTitle {
+//    [navVC.navigationBar setBarStyle:UIBarStyleBlackOpaque];
+//    [navVC.navigationBar setBarTintColor:[UIColor purpleColor]];
+//    [navVC setNavigationBarHidden:YES];
+//    
+//    UIBarButtonItem *navBarItem = [[UIBarButtonItem alloc] initWithTitle:@"\ue607" style:UIBarButtonItemStylePlain target:self action:@selector(leftButton)];
+//    
+////    UIFont *glyphFont = [gsUIKitUtilities loadUIFontWithName:@"gs-fonts" withSize:30];
+////    NSDictionary *attributes = [NSDictionary dictionaryWithObjectsAndKeys:glyphFont, NSFontAttributeName, nil];
+////    [navBarItem setTitleTextAttributes:attributes forState:UIControlStateNormal];
+//    
+//    [navVC.navigationBar.topItem setLeftBarButtonItem:navBarItem];
+//}
 
 - (void)setupNavigationShelf {
     NSString *path = [[NSBundle mainBundle] pathForResource:@"gsUIKitResources" ofType:@"bundle"];
@@ -200,7 +222,6 @@
 
 - (void)reload {
     [self.navigationShelf reloadData];
-    
 }
 
 #pragma mark - Setters
@@ -248,12 +269,9 @@
 }
 
 - (void)addViewToTabBar:(UIViewController *)vc withTitle:(NSString *)vcTitle {
-    UINavigationController *navVC = [[UINavigationController alloc] initWithRootViewController:vc];
-    [self.navigationViewControllers setObject:navVC forKey:vcTitle];
-    [self configureNavigationBarForNavigationController:navVC withTitle:vcTitle];
-    
-    [self.tabBarController addChildViewController:navVC];
-    [self.tabBarController setSelectedViewController:navVC];
+    [self.childViewControllers setObject:vc forKey:vcTitle];
+    [self.tabBarController addChildViewController:vc];
+    [self.tabBarController setSelectedViewController:vc];
 }
 
 #pragma mark - Updaters
@@ -282,7 +300,7 @@
     NSString *menuItemTitle = [self.menuNavigationMenuItemTitles objectAtIndex:index];
     gsNavigationShelfMenuItem *menuItem = [self.menuNavigationMenuItems objectForKey:menuItemTitle];
     if ([self.menuViewControllers.allKeys containsObject:menuItem.title]) {
-        UIViewController *navVC = [self.navigationViewControllers objectForKey:menuItem.title];
+        UIViewController *navVC = [self.childViewControllers objectForKey:menuItem.title];
         [self.tabBarController setSelectedViewController:navVC];
         [self hideNavigationShelfWithCompletion:nil];
     }
@@ -292,7 +310,7 @@
     NSString *menuItemTitle = [self.footerNavigationMenuItemTitles objectAtIndex:index];
     gsNavigationShelfMenuItem *menuItem = [self.footerNavigationMenuItems objectForKey:menuItemTitle];
     if ([self.footerViewControllers.allKeys containsObject:menuItem.title]) {
-        UIViewController *navVC = [self.navigationViewControllers objectForKey:menuItem.title];
+        UIViewController *navVC = [self.childViewControllers objectForKey:menuItem.title];
         [self.tabBarController setSelectedViewController:navVC];
         [self hideNavigationShelfWithCompletion:nil];
     }

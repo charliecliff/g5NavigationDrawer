@@ -7,7 +7,8 @@
 //
 
 @import UIKit;
+#import "gsNavigationTabViewController.h"
 
-@interface g5ViewController : UIViewController
+@interface g5ViewController : gsNavigationTabViewController
 
 @end
