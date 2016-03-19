@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'B5D7617AB1BF1838F4BB5DD5'
+               BlueprintIdentifier = '5E5B160F5F832B7A813C03D2'
                BlueprintName = 'g5NavigationDrawer'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'g5NavigationDrawer.framework'>

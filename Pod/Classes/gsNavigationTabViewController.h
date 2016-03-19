@@ -21,7 +21,6 @@
 
 @property (nonatomic, strong) gsNavigationShelf *navigationShelf;
 
-- (instancetype)init;
 - (gsNavigationTabViewController *)initWithDataSource:(id<gsNavigationTabDataSource>)dataSource;
 
 - (void)setMenuOptionWithTitle:(NSString *)title withSubtitle:(NSString *)subTitle withIconGlyph:(NSString *)glyph withBadgeNumber:(NSInteger)badgeNumber withViewController:(UIViewController *)vc;
@@ -35,7 +34,6 @@
 
 - (void)displayMenuViewControlletAtIndex:(NSInteger)index;
 - (void)displayFooterViewControlletAtIndex:(NSInteger)index;
-
 - (void)hideNavigationShelfWithCompletion:(void (^)(BOOL finished))completion;
 
 @end

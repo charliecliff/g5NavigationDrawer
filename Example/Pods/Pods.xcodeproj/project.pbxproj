@@ -30,6 +30,7 @@
 		C3F36930A00204A5557036BEE08C5BBB /* g5NavigationDrawer-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = B5F0F1B1EDA634CAB93C4968ADA85DE0 /* g5NavigationDrawer-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C7B3ED07F8E099B41D6C3742A69525E3 /* Pods-g5NavigationDrawer_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 8A7E3028578DFD47B6D12FB3EC593FEC /* Pods-g5NavigationDrawer_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C8F9129D5CB45A4518451F4CC7024960 /* Pods-g5NavigationDrawer_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BA9568CBA7BD2AACC1CC2389C994811 /* Pods-g5NavigationDrawer_Tests-dummy.m */; };
+		DA30CECF1C9CA85A00FD4438 /* gsNavigationTabViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4EBB9F9F2A747E78B312BC7C1A4D4ED /* gsNavigationTabViewController.xib */; };
 		E6802D1C43EB041FFBB971863BBBDED5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E4E89230EF59BC255123B67864ACF77 /* Foundation.framework */; };
 /* End PBXBuildFile section */
 
@@ -450,6 +451,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA30CECF1C9CA85A00FD4438 /* gsNavigationTabViewController.xib in Resources */,
 				21FFBBF248CDBAB25632A520D20EF897 /* g5NavigationDrawer.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -14,12 +14,11 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     g5ViewController *vc = [[g5ViewController alloc] init];
-    
+ 
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    self.window.rootViewController = vc;
+    [self.window setRootViewController:vc];
     [self.window makeKeyAndVisible];
     
-    return YES;
     return YES;
 }
 

@@ -21,6 +21,9 @@
 		6003F5B2195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
 		6003F5BA195388D20070C39A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6003F5B8195388D20070C39A /* InfoPlist.strings */; };
 		6003F5BC195388D20070C39A /* Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5BB195388D20070C39A /* Tests.m */; };
+		DA30CED31C9CAC0900FD4438 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA30CED11C9CAC0900FD4438 /* ViewController.m */; };
+		DA30CED41C9CAC0900FD4438 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA30CED21C9CAC0900FD4438 /* ViewController.xib */; };
+		DA30CED61C9CAC8100FD4438 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA30CED51C9CAC8100FD4438 /* LaunchScreen.storyboard */; };
 		F8D1CC9FB3C21705D844EA96 /* Pods_g5NavigationDrawer_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABAA8E1C99D5D4DF68BAB409 /* Pods_g5NavigationDrawer_Tests.framework */; };
 /* End PBXBuildFile section */
 
@@ -62,6 +65,10 @@
 		B371E288C68349388666CFD4 /* Pods_g5NavigationDrawer_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_g5NavigationDrawer_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0638E4C382BA5C6A0183C27 /* Pods-g5NavigationDrawer_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-g5NavigationDrawer_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-g5NavigationDrawer_Example/Pods-g5NavigationDrawer_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		D38CFAC01DB306806E935C33 /* Pods-g5NavigationDrawer_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-g5NavigationDrawer_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-g5NavigationDrawer_Tests/Pods-g5NavigationDrawer_Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		DA30CED01C9CAC0900FD4438 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		DA30CED11C9CAC0900FD4438 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		DA30CED21C9CAC0900FD4438 /* ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewController.xib; sourceTree = "<group>"; };
+		DA30CED51C9CAC8100FD4438 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F2136C0ABD7157B32E1246EE /* g5NavigationDrawer.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = g5NavigationDrawer.podspec; path = ../g5NavigationDrawer.podspec; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -145,6 +152,10 @@
 				6003F5A6195388D20070C39A /* g5ViewController.m */,
 				6003F5A8195388D20070C39A /* Images.xcassets */,
 				6003F594195388D20070C39A /* Supporting Files */,
+				DA30CED01C9CAC0900FD4438 /* ViewController.h */,
+				DA30CED11C9CAC0900FD4438 /* ViewController.m */,
+				DA30CED21C9CAC0900FD4438 /* ViewController.xib */,
+				DA30CED51C9CAC8100FD4438 /* LaunchScreen.storyboard */,
 			);
 			name = "Example for g5NavigationDrawer";
 			path = g5NavigationDrawer;
@@ -274,6 +285,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				6003F5A9195388D20070C39A /* Images.xcassets in Resources */,
+				DA30CED61C9CAC8100FD4438 /* LaunchScreen.storyboard in Resources */,
+				DA30CED41C9CAC0900FD4438 /* ViewController.xib in Resources */,
 				6003F598195388D20070C39A /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -388,6 +401,7 @@
 			files = (
 				6003F59E195388D20070C39A /* g5AppDelegate.m in Sources */,
 				6003F5A7195388D20070C39A /* g5ViewController.m in Sources */,
+				DA30CED31C9CAC0900FD4438 /* ViewController.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

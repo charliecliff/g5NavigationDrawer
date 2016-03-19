@@ -11,4 +11,6 @@
 
 @interface g5ViewController : gsNavigationTabViewController
 
+- (instancetype)init;
+
 @end

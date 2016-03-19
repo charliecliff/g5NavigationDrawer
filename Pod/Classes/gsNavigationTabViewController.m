@@ -18,9 +18,7 @@
 @property (nonatomic, strong, readwrite) NSMutableDictionary *footerNavigationMenuItems;
 @property (nonatomic, strong, readwrite) NSMutableDictionary *menuViewControllers;
 @property (nonatomic, strong, readwrite) NSMutableDictionary *footerViewControllers;
-@property (nonatomic, strong, readwrite) NSMutableDictionary *childViewControllers;
-
-//@property (nonatomic, strong, readwrite) NSMutableDictionary *navigationViewControllers;
+@property (nonatomic, strong, readwrite) NSMutableDictionary *viewControllers;
 
 @property (nonatomic, strong) UITabBarController *tabBarController;
 
@@ -37,30 +35,16 @@
 
 #pragma mark - Init
 
+- (instancetype)init
+{
+    assert(false);
+}
+
 - (gsNavigationTabViewController *)initWithDataSource:(id<gsNavigationTabDataSource>)dataSource
 {
-    
-//    NSArray *bundles = [[NSBundle mainBundle] pathsForResourcesOfType:@"bundle" inDirectory:nil];
-//    
-//    
-//
-//    NSString *bundlePath = [[NSBundle mainBundle] pathForResource:@"g5NavigationDrawer" ofType:@"bundle"];
-//    
-//    NSBundle *bundle = [NSBundle bundleWithPath:bundlePath];
-    
-//    self = [super initWithNibName:@"gsNavigationTabViewController" bundle:bundle];
-
-    NSString *bundlePath = [[NSBundle bundleForClass:[self class]] pathForResource:nil ofType:@"bundle"];
+    NSString *bundlePath = [[NSBundle bundleForClass:[gsNavigationTabViewController class]] pathForResource:nil ofType:@"bundle"];
     NSBundle *bundle = [NSBundle bundleWithPath:bundlePath];
-    
-    NSBundle *bundle2 = [NSBundle bundleForClass:[self class]];
-    
-    
-    NSArray *bundles = [bundle pathsForResourcesOfType:@"xib" inDirectory:nil];
-
-    
     self = [super initWithNibName:@"gsNavigationTabViewController" bundle:bundle];
-    
     if (self != nil) {
         
         self.menuNavigationMenuItemTitles   = [[NSMutableOrderedSet alloc] init];
@@ -69,17 +53,18 @@
         self.menuNavigationMenuItems   = [[NSMutableDictionary alloc] init];
         self.footerNavigationMenuItems = [[NSMutableDictionary alloc] init];
         
-        self.menuViewControllers       = [[NSMutableDictionary alloc] init];
-        self.footerViewControllers     = [[NSMutableDictionary alloc] init];
-        self.childViewControllers      = [[NSMutableDictionary alloc] init];
+        self.viewControllers           = [[NSMutableDictionary alloc] init];
         
         self.tabBarController = [[UITabBarController alloc] init];
         [self.tabBarController.tabBar setHidden:YES];
+        
+        self.dataSource = dataSource;
     }
     return self;
 }
 
-- (void)dealloc {
+- (void)dealloc
+{
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
@@ -87,20 +72,25 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
-//    [self setupGestureRecognizersForMenuViewControllers];
-//    [self setupGestureRecognizersForFooterViewControllers];
-//    [self setupNavigationShelf];
-//    [self setupNavigationShelfConstraints];
+    [self setupNavigationShelf];
+    [self setupNavigationShelfConstraints];
 }
 
 - (void)viewDidLayoutSubviews {
-//    if (!joseBoolean) {
-//        [self setUpContentView];
-//        joseBoolean = YES;
-//    }
-//    navigationShelfWidth = self.navigationShelfWidthConstraint.constant;
-//    [self setUpColorGradient];
+    if (!joseBoolean) {
+        [self setUpContentView];
+        joseBoolean = YES;
+    }
+    navigationShelfWidth = self.navigationShelfWidthConstraint.constant;
+    [self setUpColorGradient];
+}
+
+- (void) viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
 }
 
 #pragma mark - Setup
@@ -111,54 +101,22 @@
     [self addChildViewController:self.tabBarController];
 }
 
-- (void)setupGestureRecognizersForMenuViewControllers {
+- (void)setupGestureRecognizersForViewController:(UIViewController *)vc
+{
+    UISwipeGestureRecognizer *newSwipeRightGestureRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipRightGesture:)];
+    [newSwipeRightGestureRecognizer setDirection:UISwipeGestureRecognizerDirectionRight];
     
-    for (UIViewController *currentVC in self.menuViewControllers.allValues) {
-        
-        UISwipeGestureRecognizer *newSwipeRightGestureRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipRightGesture:)];
-        [newSwipeRightGestureRecognizer setDirection:UISwipeGestureRecognizerDirectionRight];
-        
-        UISwipeGestureRecognizer *newSwipeLeftGestureRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipLeftGesture:)];
-        [newSwipeLeftGestureRecognizer setDirection:UISwipeGestureRecognizerDirectionLeft];
-        
-        [currentVC.view addGestureRecognizer:newSwipeRightGestureRecognizer];
-        [currentVC.view addGestureRecognizer:newSwipeLeftGestureRecognizer];
-    }
-}
-
-- (void)setupGestureRecognizersForFooterViewControllers {
+    UISwipeGestureRecognizer *newSwipeLeftGestureRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipLeftGesture:)];
+    [newSwipeLeftGestureRecognizer setDirection:UISwipeGestureRecognizerDirectionLeft];
     
-    for (UIViewController *currentVC in self.footerViewControllers.allValues) {
-        
-        UISwipeGestureRecognizer *newSwipeRightGestureRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipRightGesture:)];
-        [newSwipeRightGestureRecognizer setDirection:UISwipeGestureRecognizerDirectionRight];
-        
-        UISwipeGestureRecognizer *newSwipeLeftGestureRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipLeftGesture:)];
-        [newSwipeLeftGestureRecognizer setDirection:UISwipeGestureRecognizerDirectionLeft];
-        
-        [currentVC.view addGestureRecognizer:newSwipeRightGestureRecognizer];
-        [currentVC.view addGestureRecognizer:newSwipeLeftGestureRecognizer];
-    }
+    [vc.view addGestureRecognizer:newSwipeRightGestureRecognizer];
+    [vc.view addGestureRecognizer:newSwipeLeftGestureRecognizer];
 }
-
-//- (void)configureNavigationBarForNavigationController:(UINavigationController *)navVC withTitle:(NSString *)navVCTitle {
-//    [navVC.navigationBar setBarStyle:UIBarStyleBlackOpaque];
-//    [navVC.navigationBar setBarTintColor:[UIColor purpleColor]];
-//    [navVC setNavigationBarHidden:YES];
-//    
-//    UIBarButtonItem *navBarItem = [[UIBarButtonItem alloc] initWithTitle:@"\ue607" style:UIBarButtonItemStylePlain target:self action:@selector(leftButton)];
-//    
-////    UIFont *glyphFont = [gsUIKitUtilities loadUIFontWithName:@"gs-fonts" withSize:30];
-////    NSDictionary *attributes = [NSDictionary dictionaryWithObjectsAndKeys:glyphFont, NSFontAttributeName, nil];
-////    [navBarItem setTitleTextAttributes:attributes forState:UIControlStateNormal];
-//    
-//    [navVC.navigationBar.topItem setLeftBarButtonItem:navBarItem];
-//}
 
 - (void)setupNavigationShelf {
-    NSString *path = [[NSBundle mainBundle] pathForResource:@"gsUIKitResources" ofType:@"bundle"];
-    NSBundle *resourcesBundle = [NSBundle bundleWithPath:path];
-    NSArray *views = [resourcesBundle loadNibNamed:@"gsNavigationShelf" owner:nil options:nil];
+    NSString *bundlePath = [[NSBundle bundleForClass:[gsNavigationShelf class]] pathForResource:nil ofType:@"bundle"];
+    NSBundle *bundle = [NSBundle bundleWithPath:bundlePath];
+    NSArray *views = [bundle loadNibNamed:@"gsNavigationShelf" owner:nil options:nil];
     self.navigationShelf = views[0];
     self.navigationShelf.dataSource = self;
     [self.navigationShelf reloadData];
@@ -214,62 +172,46 @@
         [gradient setStartPoint:CGPointMake(0.0, 0.5)];
         [gradient setEndPoint:CGPointMake(1.0, 0.5)];
         [self.navigationShelf.layer insertSublayer:gradient atIndex:0];
-    
     }
-}
-
-#pragma mark - Reload
-
-- (void)reload {
-    [self.navigationShelf reloadData];
 }
 
 #pragma mark - Setters
 
 - (void)setMenuOptionWithTitle:(NSString *)title withSubtitle:(NSString *)subTitle withIconGlyph:(NSString *)glyph withBadgeNumber:(NSInteger)badgeNumber withViewController:(UIViewController *)vc {
     gsNavigationShelfMenuItem *newMenuItem = [[gsNavigationShelfMenuItem alloc] initWithTitle:title withSubtitle:subTitle withGlyph:glyph withBadgeNumber:badgeNumber];
-    [self.menuViewControllers setObject:vc forKey:newMenuItem.title];
     [self.menuNavigationMenuItems setObject:newMenuItem forKey:newMenuItem.title];
-    if (![self.menuNavigationMenuItemTitles containsObject:newMenuItem.title]) {
-        [self.menuNavigationMenuItemTitles addObject:newMenuItem.title];
-    }
+    [self.menuNavigationMenuItemTitles addObject:newMenuItem.title];
+    [self.viewControllers setObject:vc forKey:newMenuItem.title];
+    [self setupGestureRecognizersForViewController:vc];
     [self addViewToTabBar:vc withTitle:title];
-    [self reload];
 }
 
 - (void)setFooterOptionWithTitle:(NSString *)title withSubtitle:(NSString *)subTitle withViewController:(UIViewController *)vc {
     gsNavigationShelfMenuItem *newMenuItem = [[gsNavigationShelfMenuItem alloc] initWithTitle:title withSubtitle:subTitle withGlyph:nil withBadgeNumber:0];
-    [self.footerViewControllers setObject:vc forKey:newMenuItem.title];
     [self.footerNavigationMenuItems setObject:newMenuItem forKey:newMenuItem.title];
-    if (![self.footerNavigationMenuItemTitles containsObject:newMenuItem.title]) {
-        [self.footerNavigationMenuItemTitles addObject:newMenuItem.title];
-    }
+    [self.footerNavigationMenuItemTitles addObject:newMenuItem.title];
+    [self.viewControllers setObject:vc forKey:newMenuItem.title];
+    [self setupGestureRecognizersForViewController:vc];
     [self addViewToTabBar:vc withTitle:title];
-    [self reload];
 }
 
 - (void)setMenuOptionWithTitle:(NSString *)title withSubtitle:(NSString *)subTitle withIconGlyph:(NSString *)glyph withBadgeNumber:(NSInteger)badgeNumber {
     gsNavigationShelfMenuItem *newMenuItem = [[gsNavigationShelfMenuItem alloc] initWithTitle:title withSubtitle:subTitle withGlyph:glyph withBadgeNumber:badgeNumber];
     [self.menuNavigationMenuItems setObject:newMenuItem forKey:newMenuItem.title];
-    if (![self.menuNavigationMenuItemTitles containsObject:newMenuItem.title]) {
-        [self.menuNavigationMenuItemTitles addObject:newMenuItem.title];
-    }
+    [self.menuNavigationMenuItemTitles addObject:newMenuItem.title];
     [self.menuViewControllers removeObjectForKey:newMenuItem.title];
-    [self reload];
+    [self.navigationShelf reloadData];
 }
 
 - (void)setFooterOptionWithTitle:(NSString *)title withSubtitle:(NSString *)subTitle{
     gsNavigationShelfMenuItem *newMenuItem = [[gsNavigationShelfMenuItem alloc] initWithTitle:title withSubtitle:subTitle withGlyph:nil withBadgeNumber:0];
     [self.footerNavigationMenuItems setObject:newMenuItem forKey:newMenuItem.title];
-    if (![self.footerNavigationMenuItemTitles containsObject:newMenuItem.title]) {
-        [self.footerNavigationMenuItemTitles addObject:newMenuItem.title];
-    }
+    [self.footerNavigationMenuItemTitles addObject:newMenuItem.title];
     [self.footerViewControllers removeObjectForKey:newMenuItem.title];
-    [self reload];
+    [self.navigationShelf reloadData];
 }
 
 - (void)addViewToTabBar:(UIViewController *)vc withTitle:(NSString *)vcTitle {
-    [self.childViewControllers setObject:vc forKey:vcTitle];
     [self.tabBarController addChildViewController:vc];
     [self.tabBarController setSelectedViewController:vc];
 }
@@ -279,19 +221,15 @@
 - (void)updateMenuOptionWithTitle:(NSString *)title withSubtitle:(NSString *)subTitle withIconGlyph:(NSString *)glyph withBadgeNumber:(NSInteger)badgeNumber {
     gsNavigationShelfMenuItem *newMenuItem = [[gsNavigationShelfMenuItem alloc] initWithTitle:title withSubtitle:subTitle withGlyph:glyph withBadgeNumber:badgeNumber];
     [self.menuNavigationMenuItems setObject:newMenuItem forKey:newMenuItem.title];
-    if (![self.menuNavigationMenuItemTitles containsObject:newMenuItem.title]) {
-        [self.menuNavigationMenuItemTitles addObject:newMenuItem.title];
-    }
-    [self reload];
+    [self.menuNavigationMenuItemTitles addObject:newMenuItem.title];
+    [self.navigationShelf reloadData];
 }
 
 - (void)updateFooterOptionWithTitle:(NSString *)title withSubtitle:(NSString *)subTitle {
     gsNavigationShelfMenuItem *newMenuItem = [[gsNavigationShelfMenuItem alloc] initWithTitle:title withSubtitle:subTitle withGlyph:nil withBadgeNumber:0];
     [self.footerNavigationMenuItems setObject:newMenuItem forKey:newMenuItem.title];
-    if (![self.footerNavigationMenuItemTitles containsObject:newMenuItem.title]) {
-        [self.footerNavigationMenuItemTitles addObject:newMenuItem.title];
-    }
-    [self reload];
+    [self.footerNavigationMenuItemTitles addObject:newMenuItem.title];
+    [self.navigationShelf reloadData];
 }
 
 #pragma mark - Display
@@ -300,7 +238,7 @@
     NSString *menuItemTitle = [self.menuNavigationMenuItemTitles objectAtIndex:index];
     gsNavigationShelfMenuItem *menuItem = [self.menuNavigationMenuItems objectForKey:menuItemTitle];
     if ([self.menuViewControllers.allKeys containsObject:menuItem.title]) {
-        UIViewController *navVC = [self.childViewControllers objectForKey:menuItem.title];
+        UIViewController *navVC = [self.viewControllers objectForKey:menuItem.title];
         [self.tabBarController setSelectedViewController:navVC];
         [self hideNavigationShelfWithCompletion:nil];
     }
@@ -310,7 +248,7 @@
     NSString *menuItemTitle = [self.footerNavigationMenuItemTitles objectAtIndex:index];
     gsNavigationShelfMenuItem *menuItem = [self.footerNavigationMenuItems objectForKey:menuItemTitle];
     if ([self.footerViewControllers.allKeys containsObject:menuItem.title]) {
-        UIViewController *navVC = [self.childViewControllers objectForKey:menuItem.title];
+        UIViewController *navVC = [self.viewControllers objectForKey:menuItem.title];
         [self.tabBarController setSelectedViewController:navVC];
         [self hideNavigationShelfWithCompletion:nil];
     }
@@ -318,26 +256,20 @@
 
 #pragma mark - IBActions
 
-- (void)leftButton {
-    if (navigationShelfIsDisplayed) {
-        [self hideNavigationShelfWithCompletion:nil];
-    }
-    else {
-        [self displayLeftViewControllerWithCompletion:nil];
-    }
-}
-
-- (void)handleSwipLeftGesture:(UISwipeGestureRecognizer *)recognizer {
+- (void)handleSwipLeftGesture:(UISwipeGestureRecognizer *)recognizer
+{
     [self hideNavigationShelfWithCompletion:nil];
 }
 
-- (void)handleSwipRightGesture:(UISwipeGestureRecognizer *)recognizer {
+- (void)handleSwipRightGesture:(UISwipeGestureRecognizer *)recognizer
+{
     [self displayLeftViewControllerWithCompletion:nil];
 }
 
 #pragma mark - Presenting the Left-Hand View
 
-- (void)displayLeftViewControllerWithCompletion:(void (^)(BOOL finished))completion {
+- (void)displayLeftViewControllerWithCompletion:(void (^)(BOOL finished))completion
+{
     self.leftContentLayoutConstraint.constant = 0;
     self.rightContentLayoutConstraint.constant = -navigationShelfWidth;
     
@@ -352,7 +284,8 @@
     }];
 }
 
-- (void)hideNavigationShelfWithCompletion:(void (^)(BOOL finished))completion {
+- (void)hideNavigationShelfWithCompletion:(void (^)(BOOL finished))completion
+{
     self.leftContentLayoutConstraint.constant = -navigationShelfWidth;
     self.rightContentLayoutConstraint.constant = 0;
     
@@ -369,19 +302,25 @@
 
 #pragma mark - gsNavigationShelfDataSource
 
-- (NSInteger)numberOfMenuOptions {
-    return self.menuNavigationMenuItems.count;
+- (NSInteger)numberOfMenuOptions
+{
+    NSInteger output = self.menuNavigationMenuItems.count;
+    return output;
 }
 
-- (NSInteger)numberOfFooterOptions {
+- (NSInteger)numberOfFooterOptions
+{
     return self.footerNavigationMenuItems.count;
 }
 
-- (gsNavigationShelfMenuItem *)menuItemForMenuOptionAtIndexPath:(NSIndexPath *)indexPath {
+- (gsNavigationShelfMenuItem *)menuItemForMenuOptionAtIndexPath:(NSIndexPath *)indexPath
+{
     NSString *menuItemTitle = [self.menuNavigationMenuItemTitles objectAtIndex:indexPath.row];
-    return [self.menuNavigationMenuItems objectForKey:menuItemTitle];}
+    return [self.menuNavigationMenuItems objectForKey:menuItemTitle];
+}
 
-- (gsNavigationShelfMenuItem *)menuItemForFooterOptionAtIndexPath:(NSIndexPath *)indexPath {
+- (gsNavigationShelfMenuItem *)menuItemForFooterOptionAtIndexPath:(NSIndexPath *)indexPath
+{
     NSString *menuItemTitle = [self.footerNavigationMenuItemTitles objectAtIndex:indexPath.row];
     return [self.footerNavigationMenuItems objectForKey:menuItemTitle];
 }
@@ -402,7 +341,8 @@
     return self.dataSource.navigationShelfRightGradientColor;
 }
 
-- (UIColor *)textColor {
+- (UIColor *)textColor
+{
     return [self.dataSource navigationShelfTextColor];
 }
 

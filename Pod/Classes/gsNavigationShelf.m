@@ -67,13 +67,14 @@
     return nil;
 }
 
-- (gsNavigationShelfTableViewCell *)menuOptionCellForTableView:(UITableView *)tableView  atIndexPath:(NSIndexPath *)indexPath {
-    NSString *path = [[NSBundle mainBundle] pathForResource:@"gsUIKitResources" ofType:@"bundle"];
-    NSBundle *resourcesBundle = [NSBundle bundleWithPath:path];
+- (gsNavigationShelfTableViewCell *)menuOptionCellForTableView:(UITableView *)tableView  atIndexPath:(NSIndexPath *)indexPath
+{
+    NSString *bundlePath = [[NSBundle bundleForClass:[gsNavigationShelf class]] pathForResource:nil ofType:@"bundle"];
+    NSBundle *bundle = [NSBundle bundleWithPath:bundlePath];
     gsNavigationShelfTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"gsNavigationShelfTableViewCell"];
     
     if (!cell) {
-        UINib *tableCell = [UINib nibWithNibName:@"gsNavigationShelfTableViewCell" bundle:resourcesBundle] ;
+        UINib *tableCell = [UINib nibWithNibName:@"gsNavigationShelfTableViewCell" bundle:bundle] ;
         [tableView registerNib:tableCell forCellReuseIdentifier:@"gsNavigationShelfTableViewCell"];
         cell = [tableView dequeueReusableCellWithIdentifier:@"gsNavigationShelfTableViewCell"];
     }
@@ -88,13 +89,14 @@
     return cell;
 }
 
-- (gsNavigationShelfFooterTableViewCell *)footerOptionCellForTableView:(UITableView *)tableView AtIndexPath:(NSIndexPath *)indexPath {
-    NSString *path = [[NSBundle mainBundle] pathForResource:@"gsUIKitResources" ofType:@"bundle"];
-    NSBundle *resourcesBundle = [NSBundle bundleWithPath:path];
+- (gsNavigationShelfFooterTableViewCell *)footerOptionCellForTableView:(UITableView *)tableView AtIndexPath:(NSIndexPath *)indexPath
+{
+    NSString *bundlePath = [[NSBundle bundleForClass:[gsNavigationShelf class]] pathForResource:nil ofType:@"bundle"];
+    NSBundle *bundle = [NSBundle bundleWithPath:bundlePath];
     gsNavigationShelfFooterTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"gsNavigationShelfFooterTableViewCell"];
     
     if (!cell) {
-        UINib *tableCell = [UINib nibWithNibName:@"gsNavigationShelfFooterTableViewCell" bundle:resourcesBundle] ;
+        UINib *tableCell = [UINib nibWithNibName:@"gsNavigationShelfFooterTableViewCell" bundle:bundle] ;
         [tableView registerNib:tableCell forCellReuseIdentifier:@"gsNavigationShelfFooterTableViewCell"];
         cell = [tableView dequeueReusableCellWithIdentifier:@"gsNavigationShelfFooterTableViewCell"];
     }

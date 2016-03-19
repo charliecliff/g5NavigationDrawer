@@ -7,6 +7,7 @@
 //
 
 #import "g5ViewController.h"
+#import "ViewController.h"
 
 @interface g5ViewController () <gsNavigationTabDataSource> 
 
@@ -18,45 +19,48 @@
 {
     self = [super initWithDataSource:self];
     if (self != nil) {
-//        UIViewController *menuVC1 = [[UIViewController alloc] init];
-//        [menuVC1.view setBackgroundColor:[UIColor redColor]];
-//        
-//        UIViewController *menuVC2 = [[UIViewController alloc] init];
-//        [menuVC2.view setBackgroundColor:[UIColor yellowColor]];
-//        
-//        UIViewController *menuVC3 = [[UIViewController alloc] init];
-//        [menuVC3.view setBackgroundColor:[UIColor blueColor]];
-//        
-//        UIViewController *footerVC1 = [[UIViewController alloc] init];
-//        [footerVC1.view setBackgroundColor:[UIColor purpleColor]];
-//        
-//        [self setMenuOptionWithTitle:@"Menu Option 1" withSubtitle:nil withIconGlyph:nil withBadgeNumber:0 withViewController:menuVC1];
-//        [self setMenuOptionWithTitle:@"Menu Option 2" withSubtitle:@"Menu Option Subtitle" withIconGlyph:nil withBadgeNumber:0 withViewController:menuVC2];
-//        [self setMenuOptionWithTitle:@"Menu Option 3" withSubtitle:nil withIconGlyph:nil withBadgeNumber:3 withViewController:menuVC3];
-//        
-//        [self setFooterOptionWithTitle:@"Footer Option" withSubtitle:@"Footer Subtitle" withViewController:footerVC1];
-//        
-//        [self displayMenuViewControlletAtIndex:0];
+        ViewController *menuVC1 = [[ViewController alloc] init];
+        [menuVC1.view setBackgroundColor:[UIColor redColor]];
+        
+        ViewController *menuVC2 = [[ViewController alloc] init];
+        [menuVC2.view setBackgroundColor:[UIColor yellowColor]];
+        
+        ViewController *menuVC3 = [[ViewController alloc] init];
+        [menuVC3.view setBackgroundColor:[UIColor blueColor]];
+        
+        ViewController *footerVC1 = [[ViewController alloc] init];
+        [footerVC1.view setBackgroundColor:[UIColor purpleColor]];
+        
+        [self setMenuOptionWithTitle:@"Menu Option 1" withSubtitle:nil withIconGlyph:nil withBadgeNumber:0 withViewController:menuVC1];
+        [self setMenuOptionWithTitle:@"Menu Option 2" withSubtitle:@"Menu Option Subtitle" withIconGlyph:nil withBadgeNumber:0 withViewController:menuVC2];
+        [self setMenuOptionWithTitle:@"Menu Option 3" withSubtitle:nil withIconGlyph:nil withBadgeNumber:3 withViewController:menuVC3];
+        [self setFooterOptionWithTitle:@"Footer Option" withSubtitle:@"Footer Subtitle" withViewController:footerVC1];
+        
+        [self displayMenuViewControlletAtIndex:0];
     }
     return self;
-}
-
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 #pragma mark - gsNavigationTabDataSource
 
 - (UIImage *)navigationHeaderImage {
     return [UIImage imageNamed:@"LogoImage"];
+}
+
+- (UIColor *)navigationShelfTextColor {
+    return [UIColor whiteColor];
+}
+
+- (UIColor *)navigationShelfBadgeColor {
+    return [UIColor colorWithRed:213.0/255.0 green:68.0/255.0 blue:28.0/255.0 alpha:1];
+}
+
+- (UIColor *)navigationShelfLeftGradientColor {
+    return [UIColor colorWithRed:48.0/255.0 green:96.0/255.0 blue:149.0/255.0 alpha:1];
+}
+
+- (UIColor *)navigationShelfRightGradientColor {
+    return [UIColor colorWithRed:3.0/255.0 green:26.0/255.0 blue:48.0/255.0 alpha:1];
 }
 
 @end
