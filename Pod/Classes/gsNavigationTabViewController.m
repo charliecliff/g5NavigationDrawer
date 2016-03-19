@@ -177,6 +177,15 @@
     }
 }
 
+#pragma mark - Reload
+
+- (void)reloadNavigationShelf
+{
+    self.navigationShelf.footerHeightConstraint.constant = 44*self.footerNavigationMenuItems.count;
+    [self.view setNeedsLayout];
+    [self.navigationShelf reloadData];
+}
+
 #pragma mark - Setters
 
 - (void)setMenuOptionWithTitle:(NSString *)title withSubtitle:(NSString *)subTitle withIconGlyph:(NSString *)glyph withBadgeNumber:(NSInteger)badgeNumber withViewController:(UIViewController *)vc {
@@ -186,6 +195,7 @@
     [self.viewControllers setObject:vc forKey:newMenuItem.title];
     [self setupGestureRecognizersForViewController:vc];
     [self addViewToTabBar:vc withTitle:title];
+    [self reloadNavigationShelf];
 }
 
 - (void)setFooterOptionWithTitle:(NSString *)title withSubtitle:(NSString *)subTitle withViewController:(UIViewController *)vc {
@@ -195,6 +205,7 @@
     [self.viewControllers setObject:vc forKey:newMenuItem.title];
     [self setupGestureRecognizersForViewController:vc];
     [self addViewToTabBar:vc withTitle:title];
+    [self reloadNavigationShelf];
 }
 
 - (void)setMenuOptionWithTitle:(NSString *)title withSubtitle:(NSString *)subTitle withIconGlyph:(NSString *)glyph withBadgeNumber:(NSInteger)badgeNumber {
@@ -202,7 +213,7 @@
     [self.menuNavigationMenuItems setObject:newMenuItem forKey:newMenuItem.title];
     [self.menuNavigationMenuItemTitles addObject:newMenuItem.title];
     [self.menuViewControllers removeObjectForKey:newMenuItem.title];
-    [self.navigationShelf reloadData];
+    [self reloadNavigationShelf];
 }
 
 - (void)setFooterOptionWithTitle:(NSString *)title withSubtitle:(NSString *)subTitle{
@@ -210,7 +221,7 @@
     [self.footerNavigationMenuItems setObject:newMenuItem forKey:newMenuItem.title];
     [self.footerNavigationMenuItemTitles addObject:newMenuItem.title];
     [self.footerViewControllers removeObjectForKey:newMenuItem.title];
-    [self.navigationShelf reloadData];
+    [self reloadNavigationShelf];
 }
 
 - (void)addViewToTabBar:(UIViewController *)vc withTitle:(NSString *)vcTitle {
@@ -224,14 +235,14 @@
     gsNavigationShelfMenuItem *newMenuItem = [[gsNavigationShelfMenuItem alloc] initWithTitle:title withSubtitle:subTitle withGlyph:glyph withBadgeNumber:badgeNumber];
     [self.menuNavigationMenuItems setObject:newMenuItem forKey:newMenuItem.title];
     [self.menuNavigationMenuItemTitles addObject:newMenuItem.title];
-    [self.navigationShelf reloadData];
+    [self reloadNavigationShelf];
 }
 
 - (void)updateFooterOptionWithTitle:(NSString *)title withSubtitle:(NSString *)subTitle {
     gsNavigationShelfMenuItem *newMenuItem = [[gsNavigationShelfMenuItem alloc] initWithTitle:title withSubtitle:subTitle withGlyph:nil withBadgeNumber:0];
     [self.footerNavigationMenuItems setObject:newMenuItem forKey:newMenuItem.title];
     [self.footerNavigationMenuItemTitles addObject:newMenuItem.title];
-    [self.navigationShelf reloadData];
+    [self reloadNavigationShelf];
 }
 
 #pragma mark - Display

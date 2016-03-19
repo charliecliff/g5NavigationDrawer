@@ -36,6 +36,8 @@
 
 @interface gsNavigationShelf : UIView
 
+@property (nonatomic, strong) IBOutlet NSLayoutConstraint *footerHeightConstraint;
+
 @property (nonatomic, strong) id<gsNavigationShelfDelegate>delegate;
 @property (nonatomic, strong) id<gsNavigationShelfDataSource>dataSource;
 

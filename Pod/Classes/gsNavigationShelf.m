@@ -16,7 +16,6 @@
 @property (nonatomic, strong) IBOutlet UITableView *profileOptionsTableView;
 @property (nonatomic, strong) IBOutlet UITableView *footerOptionsTableView;
 @property (nonatomic, strong) IBOutlet UIImageView *profileImageView;
-@property (nonatomic, strong) IBOutlet UIImageView *backgroundImageView;
 
 @end
 

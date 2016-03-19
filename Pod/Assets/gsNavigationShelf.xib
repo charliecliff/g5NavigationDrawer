@@ -25,7 +25,7 @@
                     </constraints>
                 </view>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" style="plain" separatorStyle="none" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="59" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="zEW-72-5la" userLabel="TableView - Profile Options">
-                    <rect key="frame" x="0.0" y="120" width="600" height="392"/>
+                    <rect key="frame" x="0.0" y="120" width="600" height="372"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <connections>
@@ -34,10 +34,10 @@
                     </connections>
                 </tableView>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" style="plain" separatorStyle="none" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="n16-41-peu" userLabel="TableView - Footer Options">
-                    <rect key="frame" x="0.0" y="512" width="600" height="88"/>
+                    <rect key="frame" x="0.0" y="492" width="600" height="88"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="88" id="kHW-Iw-Plh"/>
+                        <constraint firstAttribute="height" constant="88" id="kHW-Iw-Plh" userLabel="Footer Height"/>
                     </constraints>
                     <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <connections>
@@ -54,11 +54,12 @@
                 <constraint firstAttribute="trailing" secondItem="PCN-Hq-K1T" secondAttribute="trailing" id="dmG-G8-KKr"/>
                 <constraint firstItem="n16-41-peu" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="gqy-gS-Bgh"/>
                 <constraint firstItem="PCN-Hq-K1T" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="iij-kJ-OHT"/>
-                <constraint firstAttribute="bottom" secondItem="n16-41-peu" secondAttribute="bottom" id="kA5-RG-die"/>
+                <constraint firstAttribute="bottom" secondItem="n16-41-peu" secondAttribute="bottom" constant="20" id="kA5-RG-die"/>
                 <constraint firstItem="n16-41-peu" firstAttribute="top" secondItem="zEW-72-5la" secondAttribute="bottom" id="lT1-s1-NaS"/>
                 <constraint firstAttribute="trailing" secondItem="zEW-72-5la" secondAttribute="trailing" id="snw-0n-sO8"/>
             </constraints>
             <connections>
+                <outlet property="footerHeightConstraint" destination="kHW-Iw-Plh" id="2rY-M6-88H"/>
                 <outlet property="footerOptionsTableView" destination="n16-41-peu" id="65l-tr-B7a"/>
                 <outlet property="profileImageView" destination="vyg-cW-ByO" id="5qA-k8-Tdf"/>
                 <outlet property="profileOptionsTableView" destination="zEW-72-5la" id="zaP-hp-gNo"/>
