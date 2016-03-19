@@ -5,7 +5,7 @@
 
 #define SCREEN_HEIGHT [[UIScreen mainScreen] bounds].size.height
 
-@interface gsNavigationTabViewController () <gsNavigationShelfDataSource> {
+@interface gsNavigationTabViewController () <gsNavigationShelfDataSource, gsNavigationShelfDelegate> {
     BOOL joseBoolean;
     
     CGFloat navigationShelfWidth;
@@ -119,6 +119,7 @@
     NSArray *views = [bundle loadNibNamed:@"gsNavigationShelf" owner:nil options:nil];
     self.navigationShelf = views[0];
     self.navigationShelf.dataSource = self;
+    self.navigationShelf.delegate = self;
     [self.navigationShelf reloadData];
 }
 
@@ -161,7 +162,7 @@
 
 - (void)setUpColorGradient {
     if ([self.dataSource respondsToSelector:@selector(navigationShelfLeftGradientColor)] && [self.dataSource respondsToSelector:@selector(navigationShelfRightGradientColor)]) {
-
+        
         CAGradientLayer *gradient = [CAGradientLayer layer];
         gradient.frame = self.navigationShelf.bounds;
         gradient.colors = [NSArray arrayWithObjects:(id)[self.dataSource.navigationShelfRightGradientColor CGColor], (id)[self.dataSource.navigationShelfLeftGradientColor CGColor], nil];
@@ -172,6 +173,7 @@
         [gradient setStartPoint:CGPointMake(0.0, 0.5)];
         [gradient setEndPoint:CGPointMake(1.0, 0.5)];
         [self.navigationShelf.layer insertSublayer:gradient atIndex:0];
+        
     }
 }
 
@@ -346,4 +348,13 @@
     return [self.dataSource navigationShelfTextColor];
 }
 
+#pragma mark - gsNavigationShelfDelegate
+
+- (void)didSelectMenuOptionAtIndex:(NSInteger)index {
+    
+}
+
+- (void)didSelectFooterOptionAtIndex:(NSInteger)index {
+    
+}
 @end
