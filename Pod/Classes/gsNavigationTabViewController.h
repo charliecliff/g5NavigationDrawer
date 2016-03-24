@@ -23,13 +23,13 @@
 
 - (gsNavigationTabViewController *)initWithDataSource:(id<gsNavigationTabDataSource>)dataSource;
 
-- (void)setMenuOptionWithTitle:(NSString *)title withSubtitle:(NSString *)subTitle withIconGlyph:(NSString *)glyph withBadgeNumber:(NSInteger)badgeNumber withViewController:(UIViewController *)vc;
+- (void)setMenuOptionWithTitle:(NSString *)title withSubtitle:(NSString *)subTitle withIcon:(UIImage *)icon withBadgeNumber:(NSInteger)badgeNumber withViewController:(UIViewController *)vc;
 - (void)setFooterOptionWithTitle:(NSString *)title withSubtitle:(NSString *)subTitle withViewController:(UIViewController *)vc;
 
-- (void)setMenuOptionWithTitle:(NSString *)title withSubtitle:(NSString *)subTitle withIconGlyph:(NSString *)glyph withBadgeNumber:(NSInteger)badgeNumber;
+- (void)setMenuOptionWithTitle:(NSString *)title withSubtitle:(NSString *)subTitle withIcon:(UIImage *)icon withBadgeNumber:(NSInteger)badgeNumber;
 - (void)setFooterOptionWithTitle:(NSString *)title withSubtitle:(NSString *)subTitle;
 
-- (void)updateMenuOptionWithTitle:(NSString *)title withSubtitle:(NSString *)subTitle withIconGlyph:(NSString *)glyph withBadgeNumber:(NSInteger)badgeNumber;
+- (void)updateMenuOptionWithTitle:(NSString *)title withSubtitle:(NSString *)subTitle withIcon:(UIImage *)icon withBadgeNumber:(NSInteger)badgeNumber;
 - (void)updateFooterOptionWithTitle:(NSString *)title withSubtitle:(NSString *)subTitle;
 
 - (void)displayMenuViewControlletAtIndex:(NSInteger)index;

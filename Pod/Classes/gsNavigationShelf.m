@@ -82,7 +82,6 @@
     gsNavigationShelfMenuItem *menuItem = [self.dataSource menuItemForMenuOptionAtIndexPath:indexPath];
     [cell configureForNavigationMenuItem:menuItem];
     if ([self.delegate respondsToSelector:@selector(textColor)]) {
-        [cell.iconGlyphLabel setTextColor:[self.dataSource textColor]];
         [cell.titleLabel setTextColor:[self.dataSource textColor]];
     }
     return cell;
@@ -102,7 +101,10 @@
     
     gsNavigationShelfMenuItem *menuItem = [self.dataSource menuItemForFooterOptionAtIndexPath:indexPath];
     [cell configureForNavigationMenuItem:menuItem];
-    
+    if ([self.delegate respondsToSelector:@selector(textColor)]) {
+        [cell.primaryLabel setTextColor:[self.dataSource textColor]];
+        [cell.secondaryLabel setTextColor:[self.dataSource textColor]];
+    }
     return cell;
 }
 

@@ -10,12 +10,12 @@
 
 @implementation gsNavigationShelfMenuItem
 
-- (gsNavigationShelfMenuItem *)initWithTitle:(NSString *)title withSubtitle:(NSString *)subtitle withGlyph:(NSString *)glyph withBadgeNumber:(NSInteger)badgeNumber {
+- (gsNavigationShelfMenuItem *)initWithTitle:(NSString *)title withSubtitle:(NSString *)subtitle withIcon:(UIImage *)icon withBadgeNumber:(NSInteger)badgeNumber {
     self = [super init];
     if (self != nil) {
         _title = title;
         _subtitle = subtitle;
-        _glyphString = glyph;
+        _icon = icon;
         _badgeNumber = badgeNumber;
     }
     return self;

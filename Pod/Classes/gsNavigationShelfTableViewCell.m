@@ -19,11 +19,7 @@
 
 - (void)configureForNavigationMenuItem:(gsNavigationShelfMenuItem *)menuItem {
     [self.titleLabel setText:menuItem.title];
-    
-//    UIFont *glyphFont = [gsUIKitUtilities loadUIFontWithName:@"gs-fonts" withSize:20];
-//    [self.iconGlyphLabel setFont:glyphFont];
-//    [self.iconGlyphLabel setText:menuItem.glyphString];
-    
+    [self.iconImageView setImage:menuItem.icon];
     [self setBadgeCount:menuItem.badgeNumber withBadgeColor:self.badgeColor];
 }
 

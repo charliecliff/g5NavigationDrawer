@@ -31,9 +31,9 @@
         ViewController *footerVC1 = [[ViewController alloc] init];
         [footerVC1.view setBackgroundColor:[UIColor purpleColor]];
         
-        [self setMenuOptionWithTitle:@"Menu Option 1" withSubtitle:nil withIconGlyph:nil withBadgeNumber:0 withViewController:menuVC1];
-        [self setMenuOptionWithTitle:@"Menu Option 2" withSubtitle:@"Menu Option Subtitle" withIconGlyph:nil withBadgeNumber:0 withViewController:menuVC2];
-        [self setMenuOptionWithTitle:@"Menu Option 3" withSubtitle:nil withIconGlyph:nil withBadgeNumber:3 withViewController:menuVC3];
+        [self setMenuOptionWithTitle:@"Menu Option 1" withSubtitle:nil withIcon:[UIImage imageNamed:@"icon1"] withBadgeNumber:0 withViewController:menuVC1];
+        [self setMenuOptionWithTitle:@"Menu Option 2" withSubtitle:@"Menu Option Subtitle" withIcon:[UIImage imageNamed:@"icon2"] withBadgeNumber:0 withViewController:menuVC2];
+        [self setMenuOptionWithTitle:@"Menu Option 3" withSubtitle:nil withIcon:[UIImage imageNamed:@"icon3"] withBadgeNumber:3 withViewController:menuVC3];
         [self setFooterOptionWithTitle:@"Footer Option" withSubtitle:@"Footer Subtitle" withViewController:footerVC1];
         
         [self displayMenuViewControlletAtIndex:0];
@@ -48,7 +48,7 @@
 }
 
 - (UIColor *)navigationShelfTextColor {
-    return [UIColor whiteColor];
+    return [UIColor colorWithRed:48.0/255.0 green:96.0/255.0 blue:149.0/255.0 alpha:1];
 }
 
 - (UIColor *)navigationShelfBadgeColor {
@@ -56,7 +56,7 @@
 }
 
 - (UIColor *)navigationShelfLeftGradientColor {
-    return [UIColor colorWithRed:48.0/255.0 green:96.0/255.0 blue:149.0/255.0 alpha:1];
+    return [UIColor whiteColor];
 }
 
 - (UIColor *)navigationShelfRightGradientColor {

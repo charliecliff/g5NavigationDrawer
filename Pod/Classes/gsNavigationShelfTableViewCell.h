@@ -14,7 +14,7 @@
 @property (nonatomic, strong) IBOutlet UIImageView *badgeImageView;
 @property (nonatomic, strong) IBOutlet UILabel *titleLabel;
 @property (nonatomic, strong) IBOutlet UILabel *badgeLabel;
-@property (nonatomic, strong) IBOutlet UILabel *iconGlyphLabel;
+@property (nonatomic, strong) IBOutlet UIImageView *iconImageView;
 
 @property (nonatomic, strong) UIColor *badgeColor;
 

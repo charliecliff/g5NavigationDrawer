@@ -170,8 +170,8 @@
                               [NSNumber numberWithFloat:0.0f],
                               [NSNumber numberWithFloat:1.0],
                               nil];
-        [gradient setStartPoint:CGPointMake(0.0, 0.5)];
-        [gradient setEndPoint:CGPointMake(1.0, 0.5)];
+        [gradient setStartPoint:CGPointMake(1.0, 0.5)];
+        [gradient setEndPoint:CGPointMake(0.0, 0.5)];
         [self.navigationShelf.layer insertSublayer:gradient atIndex:0];
         
     }
@@ -188,8 +188,8 @@
 
 #pragma mark - Setters
 
-- (void)setMenuOptionWithTitle:(NSString *)title withSubtitle:(NSString *)subTitle withIconGlyph:(NSString *)glyph withBadgeNumber:(NSInteger)badgeNumber withViewController:(UIViewController *)vc {
-    gsNavigationShelfMenuItem *newMenuItem = [[gsNavigationShelfMenuItem alloc] initWithTitle:title withSubtitle:subTitle withGlyph:glyph withBadgeNumber:badgeNumber];
+- (void)setMenuOptionWithTitle:(NSString *)title withSubtitle:(NSString *)subTitle withIcon:(UIImage *)icon withBadgeNumber:(NSInteger)badgeNumber withViewController:(UIViewController *)vc {
+    gsNavigationShelfMenuItem *newMenuItem = [[gsNavigationShelfMenuItem alloc] initWithTitle:title withSubtitle:subTitle withIcon:icon withBadgeNumber:badgeNumber];
     [self.menuNavigationMenuItems setObject:newMenuItem forKey:newMenuItem.title];
     [self.menuNavigationMenuItemTitles addObject:newMenuItem.title];
     [self.viewControllers setObject:vc forKey:newMenuItem.title];
@@ -199,7 +199,7 @@
 }
 
 - (void)setFooterOptionWithTitle:(NSString *)title withSubtitle:(NSString *)subTitle withViewController:(UIViewController *)vc {
-    gsNavigationShelfMenuItem *newMenuItem = [[gsNavigationShelfMenuItem alloc] initWithTitle:title withSubtitle:subTitle withGlyph:nil withBadgeNumber:0];
+    gsNavigationShelfMenuItem *newMenuItem = [[gsNavigationShelfMenuItem alloc] initWithTitle:title withSubtitle:subTitle withIcon:nil withBadgeNumber:0];
     [self.footerNavigationMenuItems setObject:newMenuItem forKey:newMenuItem.title];
     [self.footerNavigationMenuItemTitles addObject:newMenuItem.title];
     [self.viewControllers setObject:vc forKey:newMenuItem.title];
@@ -208,8 +208,8 @@
     [self reloadNavigationShelf];
 }
 
-- (void)setMenuOptionWithTitle:(NSString *)title withSubtitle:(NSString *)subTitle withIconGlyph:(NSString *)glyph withBadgeNumber:(NSInteger)badgeNumber {
-    gsNavigationShelfMenuItem *newMenuItem = [[gsNavigationShelfMenuItem alloc] initWithTitle:title withSubtitle:subTitle withGlyph:glyph withBadgeNumber:badgeNumber];
+- (void)setMenuOptionWithTitle:(NSString *)title withSubtitle:(NSString *)subTitle withIcon:(UIImage *)icon withBadgeNumber:(NSInteger)badgeNumber {
+    gsNavigationShelfMenuItem *newMenuItem = [[gsNavigationShelfMenuItem alloc] initWithTitle:title withSubtitle:subTitle withIcon:icon withBadgeNumber:badgeNumber];
     [self.menuNavigationMenuItems setObject:newMenuItem forKey:newMenuItem.title];
     [self.menuNavigationMenuItemTitles addObject:newMenuItem.title];
     [self.menuViewControllers removeObjectForKey:newMenuItem.title];
@@ -217,7 +217,7 @@
 }
 
 - (void)setFooterOptionWithTitle:(NSString *)title withSubtitle:(NSString *)subTitle{
-    gsNavigationShelfMenuItem *newMenuItem = [[gsNavigationShelfMenuItem alloc] initWithTitle:title withSubtitle:subTitle withGlyph:nil withBadgeNumber:0];
+    gsNavigationShelfMenuItem *newMenuItem = [[gsNavigationShelfMenuItem alloc] initWithTitle:title withSubtitle:subTitle withIcon:nil withBadgeNumber:0];
     [self.footerNavigationMenuItems setObject:newMenuItem forKey:newMenuItem.title];
     [self.footerNavigationMenuItemTitles addObject:newMenuItem.title];
     [self.footerViewControllers removeObjectForKey:newMenuItem.title];
@@ -231,15 +231,15 @@
 
 #pragma mark - Updaters
 
-- (void)updateMenuOptionWithTitle:(NSString *)title withSubtitle:(NSString *)subTitle withIconGlyph:(NSString *)glyph withBadgeNumber:(NSInteger)badgeNumber {
-    gsNavigationShelfMenuItem *newMenuItem = [[gsNavigationShelfMenuItem alloc] initWithTitle:title withSubtitle:subTitle withGlyph:glyph withBadgeNumber:badgeNumber];
+- (void)updateMenuOptionWithTitle:(NSString *)title withSubtitle:(NSString *)subTitle withIcon:(UIImage *)icon withBadgeNumber:(NSInteger)badgeNumber {
+    gsNavigationShelfMenuItem *newMenuItem = [[gsNavigationShelfMenuItem alloc] initWithTitle:title withSubtitle:subTitle withIcon:icon withBadgeNumber:badgeNumber];
     [self.menuNavigationMenuItems setObject:newMenuItem forKey:newMenuItem.title];
     [self.menuNavigationMenuItemTitles addObject:newMenuItem.title];
     [self reloadNavigationShelf];
 }
 
 - (void)updateFooterOptionWithTitle:(NSString *)title withSubtitle:(NSString *)subTitle {
-    gsNavigationShelfMenuItem *newMenuItem = [[gsNavigationShelfMenuItem alloc] initWithTitle:title withSubtitle:subTitle withGlyph:nil withBadgeNumber:0];
+    gsNavigationShelfMenuItem *newMenuItem = [[gsNavigationShelfMenuItem alloc] initWithTitle:title withSubtitle:subTitle withIcon:nil withBadgeNumber:0];
     [self.footerNavigationMenuItems setObject:newMenuItem forKey:newMenuItem.title];
     [self.footerNavigationMenuItemTitles addObject:newMenuItem.title];
     [self reloadNavigationShelf];
