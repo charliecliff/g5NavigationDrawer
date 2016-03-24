@@ -151,11 +151,11 @@
 				6003F5A5195388D20070C39A /* g5ViewController.h */,
 				6003F5A6195388D20070C39A /* g5ViewController.m */,
 				6003F5A8195388D20070C39A /* Images.xcassets */,
-				6003F594195388D20070C39A /* Supporting Files */,
 				DA30CED01C9CAC0900FD4438 /* ViewController.h */,
 				DA30CED11C9CAC0900FD4438 /* ViewController.m */,
 				DA30CED21C9CAC0900FD4438 /* ViewController.xib */,
 				DA30CED51C9CAC8100FD4438 /* LaunchScreen.storyboard */,
+				6003F594195388D20070C39A /* Supporting Files */,
 			);
 			name = "Example for g5NavigationDrawer";
 			path = g5NavigationDrawer;

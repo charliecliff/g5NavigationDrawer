@@ -21,6 +21,7 @@
 
 @property (nonatomic, strong) gsNavigationShelf *navigationShelf;
 
+- (instancetype)init;
 - (gsNavigationTabViewController *)initWithDataSource:(id<gsNavigationTabDataSource>)dataSource;
 
 - (void)setMenuOptionWithTitle:(NSString *)title withSubtitle:(NSString *)subTitle withIcon:(UIImage *)icon withBadgeNumber:(NSInteger)badgeNumber withViewController:(UIViewController *)vc;
