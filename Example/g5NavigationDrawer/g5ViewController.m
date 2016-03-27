@@ -41,7 +41,10 @@
     return self;
 }
 
-#pragma mark - gsNavigationTabDataSource
+#pragma mark - gsNavigationTab Delegate
+
+
+#pragma mark - gsNavigationTab DataSource
 
 - (UIImage *)navigationHeaderImage {
     return [UIImage imageNamed:@"LogoImage"];
@@ -61,6 +64,16 @@
 
 - (UIColor *)navigationShelfRightGradientColor {
     return [UIColor colorWithRed:3.0/255.0 green:26.0/255.0 blue:48.0/255.0 alpha:1];
+}
+
+#pragma mark - gsNavigationShelfDelegate
+
+- (void)didSelectMenuOptionAtIndex:(NSInteger)index {
+    [self displayMenuViewControlletAtIndex:index];
+}
+
+- (void)didSelectFooterOptionAtIndex:(NSInteger)index {
+    [self displayFooterViewControlletAtIndex:index];
 }
 
 @end

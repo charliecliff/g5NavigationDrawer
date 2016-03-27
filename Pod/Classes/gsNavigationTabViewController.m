@@ -21,6 +21,7 @@
 @property (nonatomic, strong, readwrite) NSMutableDictionary *viewControllers;
 
 @property (nonatomic, strong) UITabBarController *tabBarController;
+@property (nonatomic, strong) CAGradientLayer *gradientLayer;
 
 @property (nonatomic, strong) IBOutlet UIView *contentView;
 @property (nonatomic, strong) IBOutlet UIView *navigationShelfContainerView;
@@ -163,16 +164,20 @@
 - (void)setUpColorGradient {
     if ([self.dataSource respondsToSelector:@selector(navigationShelfLeftGradientColor)] && [self.dataSource respondsToSelector:@selector(navigationShelfRightGradientColor)]) {
         
-        CAGradientLayer *gradient = [CAGradientLayer layer];
-        gradient.frame = self.navigationShelf.bounds;
-        gradient.colors = [NSArray arrayWithObjects:(id)[self.dataSource.navigationShelfRightGradientColor CGColor], (id)[self.dataSource.navigationShelfLeftGradientColor CGColor], nil];
-        gradient.locations = [NSArray arrayWithObjects:
+        if (self.gradientLayer != nil) {
+            [self.gradientLayer removeFromSuperlayer];
+        }
+        
+        self.gradientLayer = [CAGradientLayer layer];
+        self.gradientLayer.frame = self.navigationShelf.bounds;
+        self.gradientLayer.colors = [NSArray arrayWithObjects:(id)[self.dataSource.navigationShelfRightGradientColor CGColor], (id)[self.dataSource.navigationShelfLeftGradientColor CGColor], nil];
+        self.gradientLayer.locations = [NSArray arrayWithObjects:
                               [NSNumber numberWithFloat:0.0f],
                               [NSNumber numberWithFloat:1.0],
                               nil];
-        [gradient setStartPoint:CGPointMake(1.0, 0.5)];
-        [gradient setEndPoint:CGPointMake(0.0, 0.5)];
-        [self.navigationShelf.layer insertSublayer:gradient atIndex:0];
+        [self.gradientLayer setStartPoint:CGPointMake(1.0, 0.5)];
+        [self.gradientLayer setEndPoint:CGPointMake(0.0, 0.5)];
+        [self.navigationShelf.layer insertSublayer:self.gradientLayer atIndex:0];
         
     }
 }
@@ -362,10 +367,11 @@
 #pragma mark - gsNavigationShelfDelegate
 
 - (void)didSelectMenuOptionAtIndex:(NSInteger)index {
-    
+    assert(false);
 }
 
 - (void)didSelectFooterOptionAtIndex:(NSInteger)index {
-    
+    assert(false);
 }
+
 @end
