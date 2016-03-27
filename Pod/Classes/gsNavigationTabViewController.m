@@ -4,6 +4,7 @@
 #import "gsNavigationShelfMenuItem.h"
 
 #define SCREEN_HEIGHT [[UIScreen mainScreen] bounds].size.height
+#define NAVIGATION_SHELF_WIDTH 250
 
 @interface gsNavigationTabViewController () <gsNavigationShelfDataSource, gsNavigationShelfDelegate> {
     BOOL joseBoolean;
@@ -28,6 +29,7 @@
 
 @property (nonatomic, strong) IBOutlet NSLayoutConstraint *leftContentLayoutConstraint;
 @property (nonatomic, strong) IBOutlet NSLayoutConstraint *rightContentLayoutConstraint;
+
 @property (nonatomic, strong) IBOutlet NSLayoutConstraint *navigationShelfWidthConstraint;
 
 @end
@@ -71,35 +73,59 @@
 
 #pragma mark - View Life Cycle
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
     [self setupNavigationShelf];
     [self setupNavigationShelfConstraints];
-}
-
-- (void)viewDidLayoutSubviews {
-    if (!joseBoolean) {
-        [self setUpContentView];
-        joseBoolean = YES;
-    }
-    navigationShelfWidth = self.navigationShelfWidthConstraint.constant;
+    [self setupTabBarControllerWithConstraints];
     [self setUpColorGradient];
 }
 
-- (void) viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
-}
-
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
+- (void)viewDidLayoutSubviews
+{
+    navigationShelfWidth = self.navigationShelfWidthConstraint.constant;
 }
 
 #pragma mark - Setup
 
-- (void)setUpContentView {
+- (void)setupTabBarControllerWithConstraints
+{
     [self.tabBarController.view setFrame:self.contentView.frame];
     [self.contentView addSubview:self.tabBarController.view];
-    [self addChildViewController:self.tabBarController];
+    [self.tabBarController.view setTranslatesAutoresizingMaskIntoConstraints:NO];
+    
+    [self.contentView addConstraint:[NSLayoutConstraint constraintWithItem:self.tabBarController.view
+                                                                 attribute:NSLayoutAttributeTop
+                                                                 relatedBy:NSLayoutRelationEqual
+                                                                    toItem:self.contentView
+                                                                 attribute:NSLayoutAttributeTop
+                                                                multiplier:1.0
+                                                                  constant:0.0]];
+    
+    [self.contentView addConstraint:[NSLayoutConstraint constraintWithItem:self.tabBarController.view
+                                                                 attribute:NSLayoutAttributeLeading
+                                                                 relatedBy:NSLayoutRelationEqual
+                                                                    toItem:self.contentView
+                                                                 attribute:NSLayoutAttributeLeading
+                                                                multiplier:1.0
+                                                                  constant:0.0]];
+    
+    [self.contentView addConstraint:[NSLayoutConstraint constraintWithItem:self.tabBarController.view
+                                                                 attribute:NSLayoutAttributeBottom
+                                                                 relatedBy:NSLayoutRelationEqual
+                                                                    toItem:self.contentView
+                                                                 attribute:NSLayoutAttributeBottom
+                                                                multiplier:1.0
+                                                                  constant:0.0]];
+    
+    [self.contentView addConstraint:[NSLayoutConstraint constraintWithItem:self.tabBarController.view
+                                                                 attribute:NSLayoutAttributeTrailing
+                                                                 relatedBy:NSLayoutRelationEqual
+                                                                    toItem:self.contentView
+                                                                 attribute:NSLayoutAttributeTrailing
+                                                                multiplier:1.0
+                                                                  constant:0.0]];
 }
 
 - (void)setupGestureRecognizersForViewController:(UIViewController *)vc
@@ -114,7 +140,8 @@
     [vc.view addGestureRecognizer:newSwipeLeftGestureRecognizer];
 }
 
-- (void)setupNavigationShelf {
+- (void)setupNavigationShelf
+{
     NSString *bundlePath = [[NSBundle bundleForClass:[gsNavigationShelf class]] pathForResource:nil ofType:@"bundle"];
     NSBundle *bundle = [NSBundle bundleWithPath:bundlePath];
     NSArray *views = [bundle loadNibNamed:@"gsNavigationShelf" owner:nil options:nil];
@@ -124,7 +151,8 @@
     [self.navigationShelf reloadData];
 }
 
-- (void)setupNavigationShelfConstraints {
+- (void)setupNavigationShelfConstraints
+{
     [self.navigationShelfContainerView addSubview:self.navigationShelf];
     [self.navigationShelf setTranslatesAutoresizingMaskIntoConstraints:NO];
     
@@ -161,7 +189,8 @@
                                                                                    constant:0.0]];
 }
 
-- (void)setUpColorGradient {
+- (void)setUpColorGradient
+{
     if ([self.dataSource respondsToSelector:@selector(navigationShelfLeftGradientColor)] && [self.dataSource respondsToSelector:@selector(navigationShelfRightGradientColor)]) {
         
         if (self.gradientLayer != nil) {
@@ -169,7 +198,7 @@
         }
         
         self.gradientLayer = [CAGradientLayer layer];
-        self.gradientLayer.frame = self.navigationShelf.bounds;
+        self.gradientLayer.frame = CGRectMake(0, 0, NAVIGATION_SHELF_WIDTH, SCREEN_HEIGHT);
         self.gradientLayer.colors = [NSArray arrayWithObjects:(id)[self.dataSource.navigationShelfRightGradientColor CGColor], (id)[self.dataSource.navigationShelfLeftGradientColor CGColor], nil];
         self.gradientLayer.locations = [NSArray arrayWithObjects:
                               [NSNumber numberWithFloat:0.0f],
@@ -178,7 +207,6 @@
         [self.gradientLayer setStartPoint:CGPointMake(1.0, 0.5)];
         [self.gradientLayer setEndPoint:CGPointMake(0.0, 0.5)];
         [self.navigationShelf.layer insertSublayer:self.gradientLayer atIndex:0];
-        
     }
 }
 
@@ -193,7 +221,8 @@
 
 #pragma mark - Setters
 
-- (void)setMenuOptionWithTitle:(NSString *)title withSubtitle:(NSString *)subTitle withIcon:(UIImage *)icon withBadgeNumber:(NSInteger)badgeNumber withViewController:(UIViewController *)vc {
+- (void)setMenuOptionWithTitle:(NSString *)title withSubtitle:(NSString *)subTitle withIcon:(UIImage *)icon withBadgeNumber:(NSInteger)badgeNumber withViewController:(UIViewController *)vc
+{
     gsNavigationShelfMenuItem *newMenuItem = [[gsNavigationShelfMenuItem alloc] initWithTitle:title withSubtitle:subTitle withIcon:icon withBadgeNumber:badgeNumber];
     [self.menuNavigationMenuItems setObject:newMenuItem forKey:newMenuItem.title];
     [self.menuNavigationMenuItemTitles addObject:newMenuItem.title];
@@ -203,7 +232,8 @@
     [self reloadNavigationShelf];
 }
 
-- (void)setFooterOptionWithTitle:(NSString *)title withSubtitle:(NSString *)subTitle withViewController:(UIViewController *)vc {
+- (void)setFooterOptionWithTitle:(NSString *)title withSubtitle:(NSString *)subTitle withViewController:(UIViewController *)vc
+{
     gsNavigationShelfMenuItem *newMenuItem = [[gsNavigationShelfMenuItem alloc] initWithTitle:title withSubtitle:subTitle withIcon:nil withBadgeNumber:0];
     [self.footerNavigationMenuItems setObject:newMenuItem forKey:newMenuItem.title];
     [self.footerNavigationMenuItemTitles addObject:newMenuItem.title];
@@ -213,7 +243,8 @@
     [self reloadNavigationShelf];
 }
 
-- (void)setMenuOptionWithTitle:(NSString *)title withSubtitle:(NSString *)subTitle withIcon:(UIImage *)icon withBadgeNumber:(NSInteger)badgeNumber {
+- (void)setMenuOptionWithTitle:(NSString *)title withSubtitle:(NSString *)subTitle withIcon:(UIImage *)icon withBadgeNumber:(NSInteger)badgeNumber
+{
     gsNavigationShelfMenuItem *newMenuItem = [[gsNavigationShelfMenuItem alloc] initWithTitle:title withSubtitle:subTitle withIcon:icon withBadgeNumber:badgeNumber];
     [self.menuNavigationMenuItems setObject:newMenuItem forKey:newMenuItem.title];
     [self.menuNavigationMenuItemTitles addObject:newMenuItem.title];
@@ -221,7 +252,8 @@
     [self reloadNavigationShelf];
 }
 
-- (void)setFooterOptionWithTitle:(NSString *)title withSubtitle:(NSString *)subTitle{
+- (void)setFooterOptionWithTitle:(NSString *)title withSubtitle:(NSString *)subTitle
+{
     gsNavigationShelfMenuItem *newMenuItem = [[gsNavigationShelfMenuItem alloc] initWithTitle:title withSubtitle:subTitle withIcon:nil withBadgeNumber:0];
     [self.footerNavigationMenuItems setObject:newMenuItem forKey:newMenuItem.title];
     [self.footerNavigationMenuItemTitles addObject:newMenuItem.title];
@@ -229,21 +261,24 @@
     [self reloadNavigationShelf];
 }
 
-- (void)addViewToTabBar:(UIViewController *)vc withTitle:(NSString *)vcTitle {
+- (void)addViewToTabBar:(UIViewController *)vc withTitle:(NSString *)vcTitle
+{
     [self.tabBarController addChildViewController:vc];
     [self.tabBarController setSelectedViewController:vc];
 }
 
 #pragma mark - Updaters
 
-- (void)updateMenuOptionWithTitle:(NSString *)title withSubtitle:(NSString *)subTitle withIcon:(UIImage *)icon withBadgeNumber:(NSInteger)badgeNumber {
+- (void)updateMenuOptionWithTitle:(NSString *)title withSubtitle:(NSString *)subTitle withIcon:(UIImage *)icon withBadgeNumber:(NSInteger)badgeNumber
+{
     gsNavigationShelfMenuItem *newMenuItem = [[gsNavigationShelfMenuItem alloc] initWithTitle:title withSubtitle:subTitle withIcon:icon withBadgeNumber:badgeNumber];
     [self.menuNavigationMenuItems setObject:newMenuItem forKey:newMenuItem.title];
     [self.menuNavigationMenuItemTitles addObject:newMenuItem.title];
     [self reloadNavigationShelf];
 }
 
-- (void)updateFooterOptionWithTitle:(NSString *)title withSubtitle:(NSString *)subTitle {
+- (void)updateFooterOptionWithTitle:(NSString *)title withSubtitle:(NSString *)subTitle
+{
     gsNavigationShelfMenuItem *newMenuItem = [[gsNavigationShelfMenuItem alloc] initWithTitle:title withSubtitle:subTitle withIcon:nil withBadgeNumber:0];
     [self.footerNavigationMenuItems setObject:newMenuItem forKey:newMenuItem.title];
     [self.footerNavigationMenuItemTitles addObject:newMenuItem.title];
@@ -252,20 +287,23 @@
 
 #pragma mark - Display
 
-- (void)displayMenuViewControlletAtIndex:(NSInteger)index {
+- (void)displayMenuViewControlletAtIndex:(NSInteger)index
+{
     NSString *menuItemTitle = [self.menuNavigationMenuItemTitles objectAtIndex:index];
     gsNavigationShelfMenuItem *menuItem = [self.menuNavigationMenuItems objectForKey:menuItemTitle];
-    if ([self.menuViewControllers.allKeys containsObject:menuItem.title]) {
+    
+    if ([self.viewControllers.allKeys containsObject:menuItem.title]) {
         UIViewController *navVC = [self.viewControllers objectForKey:menuItem.title];
         [self.tabBarController setSelectedViewController:navVC];
         [self hideNavigationShelfWithCompletion:nil];
     }
 }
 
-- (void)displayFooterViewControlletAtIndex:(NSInteger)index {
+- (void)displayFooterViewControlletAtIndex:(NSInteger)index
+{
     NSString *menuItemTitle = [self.footerNavigationMenuItemTitles objectAtIndex:index];
     gsNavigationShelfMenuItem *menuItem = [self.footerNavigationMenuItems objectForKey:menuItemTitle];
-    if ([self.footerViewControllers.allKeys containsObject:menuItem.title]) {
+    if ([self.viewControllers.allKeys containsObject:menuItem.title]) {
         UIViewController *navVC = [self.viewControllers objectForKey:menuItem.title];
         [self.tabBarController setSelectedViewController:navVC];
         [self hideNavigationShelfWithCompletion:nil];
@@ -288,7 +326,7 @@
 
 - (void)displayLeftViewControllerWithCompletion:(void (^)(BOOL finished))completion
 {
-    self.leftContentLayoutConstraint.constant = 0;
+    self.leftContentLayoutConstraint.constant  = 0;
     self.rightContentLayoutConstraint.constant = -navigationShelfWidth;
     
     __block __typeof(self)blockSelf = self;
@@ -304,7 +342,7 @@
 
 - (void)hideNavigationShelfWithCompletion:(void (^)(BOOL finished))completion
 {
-    self.leftContentLayoutConstraint.constant = -navigationShelfWidth;
+    self.leftContentLayoutConstraint.constant  = -navigationShelfWidth;
     self.rightContentLayoutConstraint.constant = 0;
     
     __block __typeof(self)blockSelf = self;
@@ -343,19 +381,23 @@
     return [self.footerNavigationMenuItems objectForKey:menuItemTitle];
 }
 
-- (UIImage *)headerIcon {
+- (UIImage *)headerIcon
+{
     return [self.dataSource navigationHeaderImage];
 }
 
-- (UIColor *)badgeColor {
+- (UIColor *)badgeColor
+{
     return [self.dataSource navigationShelfBadgeColor];
 }
 
-- (UIColor *)navigationShelfLeftGradientColor {
+- (UIColor *)navigationShelfLeftGradientColor
+{
     return self.dataSource.navigationShelfLeftGradientColor;
 }
 
-- (UIColor *)navigationShelfRightGradientColor {
+- (UIColor *)navigationShelfRightGradientColor
+{
     return self.dataSource.navigationShelfRightGradientColor;
 }
 
@@ -366,11 +408,13 @@
 
 #pragma mark - gsNavigationShelfDelegate
 
-- (void)didSelectMenuOptionAtIndex:(NSInteger)index {
+- (void)didSelectMenuOptionAtIndex:(NSInteger)index
+{
     assert(false);
 }
 
-- (void)didSelectFooterOptionAtIndex:(NSInteger)index {
+- (void)didSelectFooterOptionAtIndex:(NSInteger)index
+{
     assert(false);
 }
 
