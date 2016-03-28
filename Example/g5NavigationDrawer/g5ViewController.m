@@ -47,7 +47,7 @@
 #pragma mark - gsNavigationTab DataSource
 
 - (UIImage *)navigationHeaderImage {
-    return [UIImage imageNamed:@"LogoImage"];
+    return [UIImage imageNamed:@"iconProfile"];
 }
 
 - (UIColor *)navigationShelfTextColor {

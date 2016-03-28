@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9532" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ViewController">
@@ -14,7 +15,77 @@
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-            <color key="backgroundColor" red="1" green="0.99735954400000004" blue="0.057499010289999999" alpha="1" colorSpace="calibratedRGB"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="View Controller" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c5H-Wy-g6T">
+                    <rect key="frame" x="210" y="150" width="180" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="21" id="Bfq-k6-rvF"/>
+                        <constraint firstAttribute="width" constant="180" id="Mho-gg-gHZ"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YXO-ub-ils">
+                    <rect key="frame" x="230" y="343" width="40" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="FlP-od-t7S"/>
+                        <constraint firstAttribute="width" constant="40" id="MqY-1L-ZOI"/>
+                    </constraints>
+                    <state key="normal" title="Button"/>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Press these Buttons to Increment the Navigation Shelf Badge Number" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ftt-dd-X54">
+                    <rect key="frame" x="200" y="261" width="200" height="70"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="200" id="YHg-KM-16D"/>
+                        <constraint firstAttribute="height" constant="70" id="b0X-G6-ATe"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kC6-Do-EFv">
+                    <rect key="frame" x="330" y="343" width="40" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="40" id="Sfv-rS-Tbd"/>
+                        <constraint firstAttribute="height" constant="40" id="qqV-iO-e1a"/>
+                    </constraints>
+                    <state key="normal" title="Button"/>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Swipe Right to display the Navigation Shelf" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IK7-fJ-i2g">
+                    <rect key="frame" x="240" y="179" width="120" height="74"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="IK7-fJ-i2g" secondAttribute="height" multiplier="1:1" id="2JR-XS-xN7"/>
+                        <constraint firstAttribute="width" constant="120" id="4Q6-EZ-EgQ"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <nil key="highlightedColor"/>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="2JR-XS-xN7"/>
+                        </mask>
+                    </variation>
+                </label>
+            </subviews>
+            <constraints>
+                <constraint firstItem="Ftt-dd-X54" firstAttribute="top" secondItem="IK7-fJ-i2g" secondAttribute="bottom" constant="8" id="29E-9e-U1L"/>
+                <constraint firstItem="IK7-fJ-i2g" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="3f8-pG-yw8"/>
+                <constraint firstItem="c5H-Wy-g6T" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="75A-2U-kGO"/>
+                <constraint firstItem="YXO-ub-ils" firstAttribute="top" secondItem="Ftt-dd-X54" secondAttribute="bottom" constant="12" id="EFF-VS-eWr"/>
+                <constraint firstItem="c5H-Wy-g6T" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="K4K-BQ-mfS"/>
+                <constraint firstItem="kC6-Do-EFv" firstAttribute="top" secondItem="Ftt-dd-X54" secondAttribute="bottom" constant="12" id="MHX-RQ-vcw"/>
+                <constraint firstItem="c5H-Wy-g6T" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="150" id="SGf-jY-HZV"/>
+                <constraint firstItem="kC6-Do-EFv" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" constant="50" id="dGc-E3-GyS"/>
+                <constraint firstItem="IK7-fJ-i2g" firstAttribute="top" secondItem="c5H-Wy-g6T" secondAttribute="bottom" constant="8" id="dKA-HJ-4wB"/>
+                <constraint firstItem="YXO-ub-ils" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" constant="-50" id="fgf-Bp-IBd"/>
+                <constraint firstItem="Ftt-dd-X54" firstAttribute="top" secondItem="c5H-Wy-g6T" secondAttribute="bottom" constant="90" id="n6N-6y-f0z"/>
+                <constraint firstItem="Ftt-dd-X54" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="zP1-WV-x61"/>
+            </constraints>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="K4K-BQ-mfS"/>
+                </mask>
+            </variation>
         </view>
     </objects>
 </document>
